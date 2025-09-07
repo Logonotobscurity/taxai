@@ -9,13 +9,13 @@ import { HelpCircle, ShieldCheck, Users, BrainCircuit } from 'lucide-react';
 const faqItems = [
     {
         icon: HelpCircle,
-        question: "What is TaxAI?",
-        answer: "TaxAI is an AI-powered platform designed to simplify tax compliance for individuals and businesses in Nigeria. It provides instant tax calculations, personalized financial insights, and tools for document management and FIRS submissions, all based on the latest tax laws."
+        question: "What is TaxComply AI?",
+        answer: "TaxComply AI is an AI-powered platform designed to simplify tax compliance for individuals and businesses in Nigeria. It provides instant tax calculations, personalized financial insights, and tools for document management and FIRS submissions, all based on the latest tax laws."
     },
     {
         icon: Users,
-        question: "Who can use TaxAI?",
-        answer: "TaxAI is built for a wide range of users, including salaried individuals, freelancers, small business owners, and finance professionals who need to manage their tax obligations accurately and efficiently."
+        question: "Who can use TaxComply AI?",
+        answer: "TaxComply AI is built for a wide range of users, including salaried individuals, freelancers, small business owners, and finance professionals who need to manage their tax obligations accurately and efficiently."
     },
     {
         icon: ShieldCheck,
@@ -25,7 +25,7 @@ const faqItems = [
     {
         icon: BrainCircuit,
         question: "How accurate is the AI tax calculation?",
-        answer: "Our AI is trained on the latest FIRS guidelines and Nigerian tax laws to ensure high accuracy. While TaxAI provides powerful tools and insights, we always recommend consulting with a qualified tax professional for complex financial decisions."
+        answer: "Our AI is trained on the latest FIRS guidelines and Nigerian tax laws to ensure high accuracy. While TaxComply AI provides powerful tools and insights, we always recommend consulting with a qualified tax professional for complex financial decisions."
     }
 ]
 
