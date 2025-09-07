@@ -18,8 +18,8 @@ const ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(
       if (textarea) {
         // Temporarily shrink to get the correct scrollHeight
         textarea.style.height = 'auto' 
-        // Set the new height. Add a pixel to prevent scrollbar from appearing on single line.
-        textarea.style.height = `${textarea.scrollHeight + 1}px`
+        // Set the new height.
+        textarea.style.height = `${textarea.scrollHeight}px`
       }
     }, [props.value]) // Recalculate on value change
 
@@ -30,7 +30,7 @@ const ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(
           "flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 overflow-hidden",
           className
         )}
-        rows={1} // Start with a single row
+        rows={3} // Start with three rows
         {...props}
       />
     )
