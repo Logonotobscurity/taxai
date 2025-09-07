@@ -105,14 +105,14 @@ export default function CalculatorPage() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 md:space-y-8">
       <Stepper
         steps={steps}
         currentStep={currentStep}
         setCurrentStep={handleStepClick}
       />
       <Card className="overflow-hidden">
-        <CardContent className="p-4 md:p-6 relative">
+        <CardContent className="p-4 md:p-6 relative min-h-[60vh]">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentStep}

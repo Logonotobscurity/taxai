@@ -51,7 +51,7 @@ export function FirsSubmission({ results, onBack }: FirsSubmissionProps) {
           </Alert>
         </CardContent>
       </Card>
-      <div className="flex justify-between">
+      <div className="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
         <Button variant="outline" onClick={onBack} size="lg">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to AI Insights

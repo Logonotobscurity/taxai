@@ -24,8 +24,8 @@ import { Label } from '@/components/ui/label';
 export default function DocumentsPage() {
   return (
     <div className="grid flex-1 items-start gap-4 md:gap-8">
-      <div className="grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8">
-        <Card>
+      <div className="grid auto-rows-max items-start gap-4 lg:grid-cols-2 lg:gap-8">
+        <Card className="lg:col-span-2">
           <CardHeader>
             <CardTitle>My Documents</CardTitle>
             <CardDescription>
@@ -37,8 +37,8 @@ export default function DocumentsPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>File Name</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead className="hidden sm:table-cell">Type</TableHead>
+                  <TableHead className="hidden sm:table-cell">Status</TableHead>
                   <TableHead>Date Uploaded</TableHead>
                 </TableRow>
               </TableHeader>
@@ -47,8 +47,8 @@ export default function DocumentsPage() {
                   <TableCell className="font-medium">
                     TCC_2023.pdf
                   </TableCell>
-                  <TableCell>Certificate</TableCell>
-                  <TableCell>
+                  <TableCell className="hidden sm:table-cell">Certificate</TableCell>
+                  <TableCell className="hidden sm:table-cell">
                     <Badge variant="outline">Verified</Badge>
                   </TableCell>
                   <TableCell>2023-10-18</TableCell>
@@ -57,8 +57,8 @@ export default function DocumentsPage() {
                   <TableCell className="font-medium">
                     Invoice_INV-001.pdf
                   </TableCell>
-                  <TableCell>Receipt</TableCell>
-                  <TableCell>
+                  <TableCell className="hidden sm:table-cell">Receipt</TableCell>
+                  <TableCell className="hidden sm:table-cell">
                     <Badge variant="outline">Pending</Badge>
                   </TableCell>
                   <TableCell>2023-10-15</TableCell>
@@ -73,7 +73,7 @@ export default function DocumentsPage() {
             </Button>
           </CardFooter>
         </Card>
-        <Card className="overflow-hidden">
+        <Card className="overflow-hidden lg:col-span-2">
           <CardHeader>
             <CardTitle>Upload New Document</CardTitle>
             <CardDescription>

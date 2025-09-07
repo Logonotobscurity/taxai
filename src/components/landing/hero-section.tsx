@@ -17,7 +17,7 @@ export function HeroSection() {
             <p className="mx-auto mt-6 max-w-lg text-lg text-muted-foreground lg:mx-0">
               Take the guesswork out of tax season. Our AI-powered platform helps you handle your FIRS taxes with confidence and ease.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row lg:justify-start">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <Button asChild size="lg" className="gradient-primary w-full shadow-lg sm:w-auto">
                 <Link href="/dashboard">
                   Get Started for Free

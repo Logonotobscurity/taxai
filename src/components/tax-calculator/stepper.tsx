@@ -27,17 +27,17 @@ export function Stepper({ steps, currentStep, setCurrentStep }: StepperProps) {
               className="group flex w-full items-center"
               disabled={stepIdx > currentStep}
             >
-              <span className="flex items-center px-6 py-4 text-sm font-medium">
+              <span className="flex items-center px-4 py-4 text-sm font-medium md:px-6">
                 {stepIdx < currentStep ? (
-                   <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary group-hover:bg-primary/80">
+                   <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary group-hover:bg-primary/80 md:h-10 md:w-10">
                    <Check
-                     className="h-6 w-6 text-white"
+                     className="h-5 w-5 text-white md:h-6 md:w-6"
                      aria-hidden="true"
                    />
                  </span>
                 ) : (
                   <span className={cn(
-                    "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2",
+                    "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-2 md:h-10 md:w-10",
                     stepIdx === currentStep ? "border-primary text-primary" : "border-border group-hover:border-muted-foreground text-muted-foreground"
                   )}>
                     {step.id}

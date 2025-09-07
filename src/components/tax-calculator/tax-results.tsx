@@ -23,7 +23,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
-import { Pie, PieChart } from 'recharts';
+import { Pie, PieChart, Cell } from 'recharts';
 
 type TaxResultsProps = {
   taxData: z.infer<typeof TaxFormSchema> | null;
@@ -110,11 +110,11 @@ export function TaxResults({
   };
 
   const pieData = [
-    { name: 'Take Home', value: results.takeHome, fill: 'var(--color-takeHome)' },
-    { name: 'Total Tax', value: results.totalTax, fill: 'var(--color-totalTax)' },
-    { name: 'Pension', value: results.pensionDeduction, fill: 'var(--color-pension)' },
-    { name: 'NHF', value: results.nhfDeduction, fill: 'var(--color-nhf)' },
-  ];
+    { name: 'Take Home', value: results.takeHome, fill: 'hsl(var(--chart-2))' },
+    { name: 'Total Tax', value: results.totalTax, fill: 'hsl(var(--chart-1))' },
+    { name: 'Pension', value: results.pensionDeduction, fill: 'hsl(var(--chart-3))' },
+    { name: 'NHF', value: results.nhfDeduction, fill: 'hsl(var(--chart-4))' },
+  ].filter(item => item.value > 0);
   
   const chartConfig = {
     takeHome: { label: "Take Home", color: "hsl(var(--chart-2))" },
@@ -124,8 +124,8 @@ export function TaxResults({
   };
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="space-y-6">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Annual Take Home</CardTitle>
@@ -195,10 +195,14 @@ export function TaxResults({
                 <CardTitle>Income Distribution</CardTitle>
             </CardHeader>
             <CardContent>
-            <ChartContainer config={chartConfig} className="h-48">
+            <ChartContainer config={chartConfig} className="mx-auto aspect-square h-full max-h-[250px]">
               <PieChart>
                 <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-                <Pie data={pieData} dataKey="value" nameKey="name" innerRadius={50} />
+                <Pie data={pieData} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80}>
+                   {pieData.map((entry) => (
+                    <Cell key={`cell-${entry.name}`} fill={entry.fill} />
+                  ))}
+                </Pie>
               </PieChart>
             </ChartContainer>
             </CardContent>
@@ -212,12 +216,12 @@ export function TaxResults({
           <CardContent>
               <div className="space-y-2">
                   {results.taxBrackets.map((bracket, index) => (
-                      <div key={index} className="flex justify-between items-center p-2 rounded-md even:bg-muted/50">
+                      <div key={index} className="flex flex-col items-start justify-between gap-2 rounded-md p-2 even:bg-muted/50 sm:flex-row sm:items-center">
                           <div>
                               <p className="font-medium">{bracket.range}</p>
                               <p className="text-sm text-muted-foreground">Rate: {bracket.rate}%</p>
                           </div>
-                          <Badge variant="secondary" className="text-lg">₦{bracket.tax.toLocaleString()}</Badge>
+                          <Badge variant="secondary" className="text-base">₦{bracket.tax.toLocaleString()}</Badge>
                       </div>
                   ))}
               </div>
@@ -236,7 +240,7 @@ export function TaxResults({
         </Alert>
       )}
 
-      <div className="flex justify-between">
+      <div className="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
         <Button variant="outline" onClick={onBack} size="lg">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Input

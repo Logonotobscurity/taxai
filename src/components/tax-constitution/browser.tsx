@@ -113,41 +113,39 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
-      <aside className="lg:col-span-1 md:col-span-1">
-        <div className="space-y-4">
-          <div>
-            <label className="text-sm font-medium">Search Rules</label>
-            <Input
-              type="text"
-              placeholder="e.g., Consolidated Relief"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="mt-1"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium">Filter by Category</label>
-            <Select
-              value={selectedCategory}
-              onValueChange={setSelectedCategory}
-            >
-              <SelectTrigger className="mt-1">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+      <aside className="lg:col-span-1 md:col-span-3 space-y-4">
+        <div>
+          <label className="text-sm font-medium">Search Rules</label>
+          <Input
+            type="text"
+            placeholder="e.g., Consolidated Relief"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="mt-1"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium">Filter by Category</label>
+          <Select
+            value={selectedCategory}
+            onValueChange={setSelectedCategory}
+          >
+            <SelectTrigger className="mt-1">
+              <SelectValue placeholder="All Categories" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Categories</SelectItem>
+              {categories.map((category) => (
+                <SelectItem key={category} value={category}>
+                  {category}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </aside>
 
-      <div className="md:col-span-2 lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="md:col-span-3 lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="lg:col-span-1 space-y-2 max-h-[60vh] overflow-y-auto pr-2">
           <h3 className="text-lg font-semibold">
             Tax Rules ({filteredRules.length})
