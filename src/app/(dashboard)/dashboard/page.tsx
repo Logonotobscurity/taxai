@@ -108,7 +108,7 @@ export default function Dashboard() {
                     content={
                       <ChartTooltipContent
                         formatter={(value, name) =>
-                          `${name}: ₦${Number(value).toLocaleString()}`
+                          `\u20a6${Number(value).toLocaleString()}`
                         }
                       />
                     }
