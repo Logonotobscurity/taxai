@@ -52,31 +52,37 @@ export function WelcomeModal() {
     router.push('/calculator');
   };
 
+  const handleExplore = () => {
+    localStorage.setItem(ONBOARDING_KEY, 'true');
+    setIsOpen(false);
+    router.push('/dashboard');
+  }
+
   const handleClose = () => {
     localStorage.setItem(ONBOARDING_KEY, 'true');
     setIsOpen(false);
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px]">
+    <Dialog open={isOpen} onOpenChange={handleClose}>
+      <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl">
             <Rocket className="h-8 w-8 text-primary" />
             Welcome to TaxAI!
           </DialogTitle>
           <DialogDescription>
-            Let's get you started. We recommend running your first tax calculation to see the power of our platform.
+            Let&apos;s get you started. We recommend running your first tax calculation to see the power of our platform.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-            <p>You can either jump right into a new calculation or explore a sample dashboard with pre-filled data to see what's possible.</p>
+        <div className="py-4">
+            <p className="text-sm text-muted-foreground">You can either jump right into a new calculation or explore a sample dashboard with pre-filled data to see what&apos;s possible.</p>
         </div>
-        <div className="flex flex-col gap-2 sm:flex-row">
-            <Button onClick={handleStart} className="w-full gradient-primary">
+        <div className="flex flex-col gap-2">
+            <Button onClick={handleStart} className="w-full">
                 <Rocket className="mr-2 h-4 w-4" /> Start My First Calculation
             </Button>
-            <Button onClick={handleClose} variant="outline" className="w-full">
+            <Button onClick={handleExplore} variant="outline" className="w-full">
                 <BarChart className="mr-2 h-4 w-4" /> Explore the Dashboard
             </Button>
         </div>
