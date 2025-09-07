@@ -60,10 +60,10 @@ export function QuickTaxEstimator() {
   }
 
   return (
-    <Card className="h-full flex flex-col justify-between bg-gradient-to-br from-secondary to-green-800 text-secondary-foreground shadow-lg transition-all hover:shadow-xl">
+    <Card className="h-full flex flex-col justify-between bg-gradient-to-br from-primary to-blue-500 text-primary-foreground shadow-lg transition-all hover:shadow-xl">
       <CardHeader>
         <CardTitle className="text-3xl">Quick Tax Estimator</CardTitle>
-        <CardDescription className="text-secondary-foreground/80">
+        <CardDescription className="text-primary-foreground/80">
           Get an instant estimate of your annual tax liability. Enter your gross
           annual income to begin.
         </CardDescription>
@@ -99,11 +99,11 @@ export function QuickTaxEstimator() {
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                     <div>
-                        <p className="text-sm text-secondary-foreground/80">Estimated Tax</p>
+                        <p className="text-sm text-primary-foreground/80">Estimated Tax</p>
                         <p className="text-3xl font-bold">₦{estimatedTax.toLocaleString()}</p>
                     </div>
                     <div>
-                        <p className="text-sm text-secondary-foreground/80">Estimated Take-Home</p>
+                        <p className="text-sm text-primary-foreground/80">Estimated Take-Home</p>
                         <p className="text-3xl font-bold">₦{estimatedTakeHome?.toLocaleString()}</p>
                     </div>
                 </div>
