@@ -9,6 +9,7 @@ import { StatementSection } from '@/components/landing/statement';
 import { StrategicPartnerSection } from '@/components/landing/strategic-partner';
 import { TechStackCarouselSection } from '@/components/landing/tech-stack-carousel';
 import { FeaturesPreviewSection } from '@/components/landing/features-preview';
+import { ChatInterfaceSection } from '@/components/landing/chat-interface';
 
 export default function LandingPage() {
   return (
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <Header />
       <main className="flex-1">
         <HeroSection />
+        <ChatInterfaceSection />
         <FeaturesPreviewSection />
         <StrategicPartnerSection />
         <GeneralistApproachSection />
