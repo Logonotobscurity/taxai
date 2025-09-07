@@ -130,4 +130,22 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  @keyframes flyRight {
+    0% {
+      left: -10%;
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      left: 45%;
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
 }

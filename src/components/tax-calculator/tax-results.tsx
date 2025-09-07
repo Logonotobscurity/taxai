@@ -17,13 +17,13 @@ import type { TaxFormSchema } from '@/lib/schemas';
 import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
 import { Pie, PieChart, Cell } from 'recharts';
+import { FileLoader } from '../ui/loader';
 
 type TaxResultsProps = {
   taxData: z.infer<typeof TaxFormSchema> | null;
@@ -32,17 +32,16 @@ type TaxResultsProps = {
   onBack: () => void;
 };
 
-const LoadingSkeleton = () => (
-  <div className="space-y-6">
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <Skeleton className="h-28" />
-      <Skeleton className="h-28" />
-      <Skeleton className="h-28" />
-      <Skeleton className="h-28" />
-    </div>
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      <Skeleton className="h-80" />
-      <Skeleton className="h-80" />
+const LoadingState = () => (
+  <div className="flex flex-col items-center justify-center h-full min-h-[40vh] gap-4">
+    <FileLoader />
+    <div className="text-center">
+      <p className="text-lg font-semibold text-foreground">
+        Calculating Your Tax...
+      </p>
+      <p className="text-sm text-muted-foreground">
+        Our AI is analyzing your information against the latest tax laws.
+      </p>
     </div>
   </div>
 );
@@ -82,7 +81,7 @@ export function TaxResults({
   }, [taxData]);
 
   if (loading) {
-    return <LoadingSkeleton />;
+    return <LoadingState />;
   }
 
   if (error) {
