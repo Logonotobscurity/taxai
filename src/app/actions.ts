@@ -9,6 +9,7 @@ import type {
   GeneratePersonalizedTaxInsightsInput,
 } from '@/ai/flows/propose-tax-optimization-strategies';
 import type { TaxFormSchema } from '@/lib/schemas';
+import { FormulaEngine } from '@/services/formula-engine';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -40,5 +41,14 @@ export async function getPersonalizedInsightsAction(
   data: GeneratePersonalizedTaxInsightsInput
 ) {
   const result = await generatePersonalizedTaxInsights(data);
+  return result;
+}
+
+export async function executeFormulaAction(
+  formula: string,
+  context: Record<string, any>
+) {
+  const formulaEngine = new FormulaEngine();
+  const result = formulaEngine.evaluate(formula, context);
   return result;
 }

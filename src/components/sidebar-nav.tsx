@@ -9,6 +9,7 @@ import {
   BarChart2,
   Bot,
   Settings,
+  FunctionSquare,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -29,6 +30,7 @@ const navItems: NavItem[] = [
   { href: '/documents', label: 'Documents', icon: FileText },
   { href: '/reports', label: 'Reports', icon: BarChart2 },
   { href: '/ai-advisor', label: 'AI Advisor', icon: Bot },
+  { href: '/formula-sandbox', label: 'Formula Sandbox', icon: FunctionSquare },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
