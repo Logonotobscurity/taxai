@@ -23,7 +23,6 @@ import {
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import {
-  Card,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -34,13 +33,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import {
-  Person,
-  TrendingUp,
-  Landmark,
-  FileDigit,
-  Building2,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 type TaxInputFormProps = {
   onSubmit: (data: z.infer<typeof TaxFormSchema>) => void;
@@ -65,9 +58,9 @@ export function TaxInputForm({ onSubmit, initialData }: TaxInputFormProps) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <div className="space-y-4">
           <CardHeader className="p-0">
-            <CardTitle>Basic Information</CardTitle>
+            <CardTitle>Tax Information</CardTitle>
             <CardDescription>
-              Provide your primary financial details for the tax year.
+              Provide your primary financial details for the tax year. All fields are required.
             </CardDescription>
           </CardHeader>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -150,8 +143,8 @@ export function TaxInputForm({ onSubmit, initialData }: TaxInputFormProps) {
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="paye">PAYE</SelectItem>
-                      <SelectItem value="vat">VAT</SelectItem>
-                      <SelectItem value="wht">Withholding Tax</SelectItem>
+                      <SelectItem value="vat" disabled>VAT (coming soon)</SelectItem>
+                      <SelectItem value="wht" disabled>Withholding Tax (coming soon)</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -161,12 +154,12 @@ export function TaxInputForm({ onSubmit, initialData }: TaxInputFormProps) {
           </div>
         </div>
 
-        <Accordion type="multiple" className="w-full">
+        <Accordion type="multiple" className="w-full" defaultValue={['deductions']}>
           <AccordionItem value="deductions">
             <AccordionTrigger className="text-lg font-semibold">
               Allowable Deductions
             </AccordionTrigger>
-            <AccordionContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <AccordionContent className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
               <FormField
                 control={form.control}
                 name="deductions.pension"
@@ -225,7 +218,7 @@ export function TaxInputForm({ onSubmit, initialData }: TaxInputFormProps) {
             <AccordionTrigger className="text-lg font-semibold">
               Allowances
             </AccordionTrigger>
-            <AccordionContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <AccordionContent className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
               <FormField
                 control={form.control}
                 name="allowances.transport"
@@ -257,8 +250,9 @@ export function TaxInputForm({ onSubmit, initialData }: TaxInputFormProps) {
         </Accordion>
 
         <div className="flex justify-end">
-          <Button type="submit" size="lg">
+          <Button type="submit" size="lg" className="gradient-primary">
             Continue to Calculation
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </form>

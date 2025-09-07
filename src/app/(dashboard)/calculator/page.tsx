@@ -10,6 +10,7 @@ import { AiInsights } from '@/components/tax-calculator/ai-insights';
 import { FirsSubmission } from '@/components/tax-calculator/firs-submission';
 import type { TaxFormSchema } from '@/lib/schemas';
 import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const steps = [
   { id: '01', name: 'Tax Information', href: '#' },
@@ -24,15 +25,18 @@ export default function CalculatorPage() {
     null
   );
   const [results, setResults] = useState<CalculateTaxWithRulesOutput | null>(null);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for back
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
+      setDirection(1);
       setCurrentStep(currentStep + 1);
     }
   };
 
   const handleBack = () => {
     if (currentStep > 0) {
+      setDirection(-1);
       setCurrentStep(currentStep - 1);
     }
   };
@@ -47,6 +51,28 @@ export default function CalculatorPage() {
   ) => {
     setResults(calculationResults);
     handleNext();
+  };
+  
+  const handleStepClick = (stepIndex: number) => {
+    if (stepIndex < currentStep) {
+      setDirection(stepIndex - currentStep > 0 ? 1 : -1);
+      setCurrentStep(stepIndex);
+    }
+  }
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
   };
 
   const renderStepContent = () => {
@@ -83,10 +109,28 @@ export default function CalculatorPage() {
       <Stepper
         steps={steps}
         currentStep={currentStep}
-        setCurrentStep={setCurrentStep}
+        setCurrentStep={handleStepClick}
       />
-      <Card>
-        <CardContent className="p-4 md:p-6">{renderStepContent()}</CardContent>
+      <Card className="overflow-hidden">
+        <CardContent className="p-4 md:p-6 relative">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={currentStep}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              className="w-full"
+            >
+              {renderStepContent()}
+            </motion.div>
+          </AnimatePresence>
+        </CardContent>
       </Card>
     </div>
   );

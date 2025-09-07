@@ -18,55 +18,39 @@ export function Stepper({ steps, currentStep, setCurrentStep }: StepperProps) {
     <nav aria-label="Progress">
       <ol
         role="list"
-        className="divide-y divide-border rounded-md border md:flex md:divide-y-0"
+        className="divide-y divide-border rounded-lg border md:flex md:divide-y-0"
       >
         {steps.map((step, stepIdx) => (
           <li key={step.name} className="relative md:flex md:flex-1">
-            {stepIdx < currentStep ? (
-              <button
-                onClick={() => setCurrentStep(stepIdx)}
-                className="group flex w-full items-center"
-              >
-                <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary group-hover:bg-primary/80">
-                    <Check
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
+            <button
+              onClick={() => setCurrentStep(stepIdx)}
+              className="group flex w-full items-center"
+              disabled={stepIdx > currentStep}
+            >
+              <span className="flex items-center px-6 py-4 text-sm font-medium">
+                {stepIdx < currentStep ? (
+                   <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary group-hover:bg-primary/80">
+                   <Check
+                     className="h-6 w-6 text-white"
+                     aria-hidden="true"
+                   />
+                 </span>
+                ) : (
+                  <span className={cn(
+                    "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2",
+                    stepIdx === currentStep ? "border-primary text-primary" : "border-border group-hover:border-muted-foreground text-muted-foreground"
+                  )}>
+                    {step.id}
                   </span>
-                  <span className="ml-4 text-sm font-medium text-foreground">
-                    {step.name}
-                  </span>
-                </span>
-              </button>
-            ) : stepIdx === currentStep ? (
-              <button
-                onClick={() => setCurrentStep(stepIdx)}
-                className="flex items-center px-6 py-4 text-sm font-medium"
-                aria-current="step"
-              >
-                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-primary">
-                  <span className="text-primary">{step.id}</span>
-                </span>
-                <span className="ml-4 text-sm font-medium text-primary">
+                )}
+                <span className={cn(
+                  "ml-4 text-sm font-medium",
+                  stepIdx === currentStep ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+                )}>
                   {step.name}
                 </span>
-              </button>
-            ) : (
-              <button
-                onClick={() => setCurrentStep(stepIdx)}
-                className="group flex items-center"
-              >
-                <span className="flex items-center px-6 py-4 text-sm font-medium">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-border group-hover:border-muted-foreground">
-                    <span className="text-muted-foreground">{step.id}</span>
-                  </span>
-                  <span className="ml-4 text-sm font-medium text-muted-foreground group-hover:text-foreground">
-                    {step.name}
-                  </span>
-                </span>
-              </button>
-            )}
+              </span>
+            </button>
 
             {stepIdx !== steps.length - 1 ? (
               <div

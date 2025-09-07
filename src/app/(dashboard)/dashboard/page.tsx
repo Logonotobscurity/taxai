@@ -30,34 +30,36 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
-import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { cn } from '@/lib/utils';
 
 const chartData = [
-  { month: 'January', tax: 186, income: 80 },
-  { month: 'February', tax: 305, income: 200 },
-  { month: 'March', tax: 237, income: 120 },
-  { month: 'April', tax: 73, income: 190 },
-  { month: 'May', tax: 209, income: 130 },
-  { month: 'June', tax: 214, income: 140 },
+  { month: 'January', tax: 186000, income: 800000 },
+  { month: 'February', tax: 305000, income: 1200000 },
+  { month: 'March', tax: 237000, income: 950000 },
+  { month: 'April', tax: 273000, income: 1100000 },
+  { month: 'May', tax: 209000, income: 890000 },
+  { month: 'June', tax: 214000, income: 910000 },
 ];
 
 const chartConfig = {
   tax: {
-    label: 'Tax',
-    color: 'hsl(var(--chart-1))',
+    label: 'Tax Paid',
+    color: 'hsl(var(--primary))',
   },
   income: {
-    label: 'Income',
-    color: 'hsl(var(--chart-2))',
+    label: 'Gross Income',
+    color: 'hsl(var(--accent))',
   },
 };
 
 export default function Dashboard() {
+  const formatCurrency = (value: number) => `₦${(value / 1000).toFixed(0)}k`;
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 md:gap-8">
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          <Card>
+          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Tax Paid (YTD)
@@ -71,7 +73,7 @@ export default function Dashboard() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Next Submission Due
@@ -83,7 +85,7 @@ export default function Dashboard() {
               <p className="text-xs text-muted-foreground">VAT Return</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Effective Tax Rate
@@ -97,7 +99,7 @@ export default function Dashboard() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 AI Recommendations
@@ -113,12 +115,12 @@ export default function Dashboard() {
           </Card>
         </div>
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-          <Card className="xl:col-span-2">
+          <Card className="xl:col-span-2 transition-all hover:shadow-lg">
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Tax Overview</CardTitle>
                 <CardDescription>
-                  Monthly tax payments vs. income.
+                  Monthly tax payments vs. gross income for the last 6 months.
                 </CardDescription>
               </div>
               <Button asChild size="sm" className="ml-auto gap-1">
@@ -129,30 +131,46 @@ export default function Dashboard() {
               </Button>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={chartConfig} className="h-80">
-                <BarChart data={chartData}>
-                  <CartesianGrid vertical={false} />
+              <ChartContainer config={chartConfig} className="h-80 w-full">
+                <BarChart
+                  data={chartData}
+                  margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
+                >
+                  <CartesianGrid vertical={false} strokeDasharray="3 3" />
                   <XAxis
                     dataKey="month"
                     tickLine={false}
                     tickMargin={10}
                     axisLine={false}
+                    tickFormatter={(value) => value.slice(0, 3)}
                   />
+                  <YAxis tickLine={false} axisLine={false} tickMargin={10} tickFormatter={formatCurrency} />
                   <ChartTooltip
-                    content={<ChartTooltipContent />}
-                    cursor={false}
+                    content={<ChartTooltipContent formatter={(value, name) => `${name}: ₦${Number(value).toLocaleString()}`} />}
+                    cursor={{ fill: 'hsl(var(--muted))', radius: 'var(--radius)' }}
                   />
-                  <Bar dataKey="tax" fill="var(--color-tax)" radius={4} />
-                  <Bar dataKey="income" fill="var(--color-income)" radius={4} />
+                  <Bar
+                    dataKey="tax"
+                    fill="var(--color-tax)"
+                    radius={[4, 4, 0, 0]}
+                  />
+                  <Bar
+                    dataKey="income"
+                    fill="var(--color-income)"
+                    radius={[4, 4, 0, 0]}
+                  />
                 </BarChart>
               </ChartContainer>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="transition-all hover:shadow-lg">
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
+              <CardDescription>
+                A log of your recent tax-related activities.
+              </CardDescription>
             </CardHeader>
-            <CardContent className="grid gap-8">
+            <CardContent className="grid gap-6">
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
                   <p className="text-sm font-medium leading-none">
@@ -163,7 +181,7 @@ export default function Dashboard() {
                   </p>
                 </div>
                 <div className="ml-auto font-medium">
-                  <Badge variant="outline">Completed</Badge>
+                  <Badge variant="secondary">Completed</Badge>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -176,7 +194,7 @@ export default function Dashboard() {
                   </p>
                 </div>
                 <div className="ml-auto font-medium">
-                  <Badge>New</Badge>
+                  <Badge className="bg-accent text-accent-foreground">New</Badge>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -202,7 +220,7 @@ export default function Dashboard() {
                   </p>
                 </div>
                 <div className="ml-auto font-medium">
-                  <Badge variant="outline">Completed</Badge>
+                  <Badge variant="secondary">Completed</Badge>
                 </div>
               </div>
             </CardContent>
