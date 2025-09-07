@@ -26,10 +26,10 @@ export default function LoginPage() {
   
   return (
     <Card>
-      <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl">Login</CardTitle>
+      <CardHeader className="space-y-1 text-center">
+        <CardTitle>Welcome Back</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          Enter your credentials to access your account
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleLogin}>
@@ -39,13 +39,18 @@ export default function LoginPage() {
             <Input id="email" type="email" placeholder="m@example.com" required />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
+            <div className="flex items-center">
+              <Label htmlFor="password">Password</Label>
+              <Link href="#" className="ml-auto inline-block text-sm underline">
+                Forgot your password?
+              </Link>
+            </div>
             <Input id="password" type="password" required />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <Button className="w-full gradient-primary" type="submit">Sign in</Button>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-center text-muted-foreground">
             Don&apos;t have an account?{' '}
             <Link href="#" className="font-medium text-primary hover:underline">
               Sign up

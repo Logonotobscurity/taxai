@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Anton, Rubik } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-anton',
+});
+
+const rubik = Rubik({
+  subsets: ['latin'],
+  variable: '--font-rubik',
+});
 
 export const metadata: Metadata = {
   title: 'TaxAI - Your FIRS Finance Partner',
@@ -20,8 +29,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          inter.variable
+          'min-h-screen bg-background font-body antialiased',
+          anton.variable,
+          rubik.variable
         )}
       >
         <div className="relative flex min-h-dvh flex-col">

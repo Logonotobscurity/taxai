@@ -1,7 +1,6 @@
 import { Bell } from 'lucide-react';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { UserNav } from './user-nav';
 
 export function Header() {
   return (
@@ -9,8 +8,8 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <SidebarTrigger className="md:hidden" />
-          <h1 className="text-lg font-semibold tracking-tight">
-            FIRS Finance Platform
+          <h1 className="font-headline text-lg font-semibold tracking-tight">
+            Welcome Back!
           </h1>
         </div>
         <div className="flex items-center gap-4">
@@ -18,7 +17,6 @@ export function Header() {
             <Bell className="h-5 w-5" />
             <span className="sr-only">Notifications</span>
           </Button>
-          <UserNav />
         </div>
       </div>
     </header>

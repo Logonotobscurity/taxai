@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {
   ArrowUpRight,
   Calculator,
-  CircleDollarSign,
+  Lightbulb,
   FileText,
   CreditCard,
 } from 'lucide-react';
@@ -31,7 +31,6 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { cn } from '@/lib/utils';
 
 const chartData = [
   { month: 'January', tax: 186000, income: 800000 },
@@ -59,12 +58,12 @@ export default function Dashboard() {
     <div className="flex w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 md:gap-8">
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
+          <Card className="transition-all hover:shadow-md hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Tax Paid (YTD)
               </CardTitle>
-              <CircleDollarSign className="h-4 w-4 text-muted-foreground" />
+              <CreditCard className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">₦45,231.89</div>
@@ -73,7 +72,7 @@ export default function Dashboard() {
               </p>
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
+          <Card className="transition-all hover:shadow-md hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Next Submission Due
@@ -85,12 +84,12 @@ export default function Dashboard() {
               <p className="text-xs text-muted-foreground">VAT Return</p>
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
+          <Card className="transition-all hover:shadow-md hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Effective Tax Rate
               </CardTitle>
-              <CreditCard className="h-4 w-4 text-muted-foreground" />
+              <Calculator className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">12.5%</div>
@@ -99,12 +98,12 @@ export default function Dashboard() {
               </p>
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg hover:-translate-y-1">
+          <Card className="transition-all hover:shadow-md hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 AI Recommendations
               </CardTitle>
-              <Calculator className="h-4 w-4 text-muted-foreground" />
+              <Lightbulb className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">3 Active</div>
@@ -115,7 +114,7 @@ export default function Dashboard() {
           </Card>
         </div>
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-          <Card className="xl:col-span-2 transition-all hover:shadow-lg">
+          <Card className="xl:col-span-2 transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Tax Overview</CardTitle>
@@ -163,7 +162,7 @@ export default function Dashboard() {
               </ChartContainer>
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-lg">
+          <Card className="transition-all hover:shadow-md">
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
               <CardDescription>
