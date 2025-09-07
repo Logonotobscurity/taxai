@@ -76,7 +76,7 @@ export function StrategicPartnerSection() {
                 </CardHeader>
               </Card>
             </Link>
-             <Link href="/formula-sandbox">
+             <Link href="/calculator">
               <Card className="cursor-pointer transition-all hover:-translate-y-2">
                 <CardHeader>
                   <Calculator className="h-10 w-10 text-primary mb-4" />
@@ -85,7 +85,7 @@ export function StrategicPartnerSection() {
                     Build robust financial models to forecast, plan, and optimize your tax strategy.
                   </CardDescription>
                    <span className="flex items-center text-sm font-semibold text-primary mt-2 group">
-                    Try the Formula Sandbox
+                    Try the Tax Calculator
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </CardHeader>
