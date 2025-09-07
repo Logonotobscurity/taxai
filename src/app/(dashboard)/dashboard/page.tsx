@@ -3,11 +3,6 @@
 import Link from 'next/link';
 import {
   ArrowUpRight,
-  Calculator,
-  Lightbulb,
-  FileText,
-  CreditCard,
-  Rocket,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -26,6 +21,10 @@ import {
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { QuickTaxEstimator } from '@/components/dashboard/quick-tax-estimator';
 import { motion } from 'framer-motion';
+import { RecentActivity } from '@/components/dashboard/recent-activity';
+import { UpcomingDeadlines } from '@/components/dashboard/upcoming-deadlines';
+import { AiRecommendations } from '@/components/dashboard/ai-recommendations';
+
 
 const chartData = [
   { month: 'January', tax: 186000, income: 800000 },
@@ -39,11 +38,11 @@ const chartData = [
 const chartConfig = {
   tax: {
     label: 'Tax Paid',
-    color: 'hsl(var(--primary))',
+    color: 'hsl(var(--chart-1))',
   },
   income: {
     label: 'Gross Income',
-    color: 'hsl(var(--accent))',
+    color: 'hsl(var(--chart-2))',
   },
 };
 
@@ -65,37 +64,13 @@ export default function Dashboard() {
 
           {/* Supporting Info Cards */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-             <Card className="transition-all hover:shadow-md hover:-translate-y-1">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Next Submission Due
-                </CardTitle>
-                <FileText className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">July 31, 2024</div>
-                <p className="text-xs text-muted-foreground">VAT Return</p>
-              </CardContent>
-            </Card>
-            <Card className="transition-all hover:shadow-md hover:-translate-y-1">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  AI Recommendations
-                </CardTitle>
-                <Lightbulb className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">3 Active</div>
-                <p className="text-xs text-muted-foreground">
-                  Potential savings: ₦12,500
-                </p>
-              </CardContent>
-            </Card>
+             <UpcomingDeadlines />
+             <AiRecommendations />
           </div>
         </div>
 
-        <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-          <Card className="xl:col-span-2 transition-all hover:shadow-md">
+        <div className="grid gap-4 md:gap-8 lg:grid-cols-3">
+          <Card className="lg:col-span-2 transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Tax Overview</CardTitle>
@@ -157,68 +132,7 @@ export default function Dashboard() {
               </ChartContainer>
             </CardContent>
           </Card>
-          <Card className="transition-all hover:shadow-md">
-            <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>
-                A log of your recent tax-related activities.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-6">
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
-                    PAYE Return Filed
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    June 2024 monthly return
-                  </p>
-                </div>
-                <div className="ml-auto font-medium">
-                  <Badge variant="secondary">Completed</Badge>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
-                    AI Insight Generated
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Pension contribution optimization
-                  </p>
-                </div>
-                <div className="ml-auto font-medium">
-                  <Badge className="bg-accent text-accent-foreground">New</Badge>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
-                    Document Uploaded
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Receipt_2024_06_15.pdf
-                  </p>
-                </div>
-                <div className="ml-auto font-medium text-muted-foreground">
-                  2 days ago
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
-                    WHT Filed
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Invoice #INV-007 for Client Corp
-                  </p>
-                </div>
-                <div className="ml-auto font-medium">
-                  <Badge variant="secondary">Completed</Badge>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <RecentActivity />
         </div>
       </main>
     </motion.div>

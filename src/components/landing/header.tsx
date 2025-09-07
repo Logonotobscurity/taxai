@@ -24,8 +24,11 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
+           <Button variant="ghost" asChild>
+                <Link href="/login">Sign In</Link>
+            </Button>
           <Button className="gradient-primary shadow" asChild>
-            <Link href="/login">Get Started</Link>
+            <Link href="/dashboard">Get Started</Link>
           </Button>
         </div>
       </div>
