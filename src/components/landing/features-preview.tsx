@@ -1,3 +1,4 @@
+
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -211,7 +212,7 @@ function AiAdvisorCard() {
 
 export function FeaturesPreviewSection() {
     return (
-        <section className="py-16 md:py-24 bg-background">
+        <section className="pt-0 pb-16 md:pb-24 bg-background">
             <div className="container">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                    <MiniTaxCalculator />
