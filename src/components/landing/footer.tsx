@@ -27,7 +27,7 @@ export function Footer() {
           </div>
         </nav>
         <div className="mt-10 flex justify-center">
-            <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
+            <span className="text-lg font-bold text-primary">TaxComply AI</span>
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-muted-foreground">
           &copy; {new Date().getFullYear()} TaxComply AI, Inc. All rights reserved.

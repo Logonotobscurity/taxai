@@ -8,7 +8,7 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
+            <span className="text-lg font-bold text-primary">TaxComply AI</span>
           </Link>
           <nav className="hidden md:flex md:gap-4">
             <Link href="#services" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
