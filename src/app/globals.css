@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 60 43% 98%;
-    --foreground: 75 8% 9.4%;
-    --card: 60 43% 98%;
-    --card-foreground: 75 8% 9.4%;
-    --popover: 60 43% 98%;
-    --popover-foreground: 75 8% 9.4%;
-    --primary: 163 100% 21%;
-    --primary-foreground: 162 90% 74%;
-    --secondary: 158 14% 34%;
+    --background: 220 20% 98%;
+    --foreground: 220 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 15%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 163 100% 21%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 153 38% 86%;
-    --muted-foreground: 158 19% 25%;
-    --accent: 331 100% 37%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 340 82% 52%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 78%;
-    --input: 195 12% 78%;
-    --ring: 163 100% 21%;
-    --radius: 0.5rem;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 75 8% 9.4%;
-    --foreground: 60 8% 90%;
-    --card: 75 8% 9.4%;
-    --card-foreground: 60 8% 90%;
-    --popover: 75 8% 9.4%;
-    --popover-foreground: 60 8% 90%;
-    --primary: 163 63% 62%;
-    --primary-foreground: 164 100% 11%;
-    --secondary: 160 18% 25%;
-    --secondary-foreground: 156 31% 87%;
-    --muted: 160 18% 25%;
-    --muted-foreground: 155 20% 75%;
-    --accent: 341 100% 85%;
-    --accent-foreground: 336 100% 28%;
+    --background: 220 15% 10%;
+    --foreground: 220 15% 90%;
+    --card: 220 15% 12%;
+    --card-foreground: 220 15% 90%;
+    --popover: 220 15% 10%;
+    --popover-foreground: 220 15% 90%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 163 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 340 92% 72%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 24%;
-    --input: 195 12% 24%;
-    --ring: 163 63% 62%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -74,32 +74,32 @@
       0deg,
       transparent,
       transparent 19px,
-      hsla(var(--primary) / 0.15) 19px,
-      hsla(var(--primary) / 0.15) 20px,
+      hsla(var(--primary) / 0.05) 19px,
+      hsla(var(--primary) / 0.05) 20px,
       transparent 20px,
       transparent 39px,
-      hsla(var(--primary) / 0.15) 39px,
-      hsla(var(--primary) / 0.15) 40px
+      hsla(var(--primary) / 0.05) 39px,
+      hsla(var(--primary) / 0.05) 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 19px,
-      hsla(var(--primary) / 0.15) 19px,
-      hsla(var(--primary) / 0.15) 20px,
+      hsla(var(--primary) / 0.05) 19px,
+      hsla(var(--primary) / 0.05) 20px,
       transparent 20px,
       transparent 39px,
-      hsla(var(--primary) / 0.15) 39px,
-      hsla(var(--primary) / 0.15) 40px
+      hsla(var(--primary) / 0.05) 39px,
+      hsla(var(--primary) / 0.05) 40px
     ),
     radial-gradient(
       circle at 20px 20px,
-      hsla(var(--primary) / 0.18) 2px,
+      hsla(var(--primary) / 0.08) 2px,
       transparent 2px
     ),
     radial-gradient(
       circle at 40px 40px,
-      hsla(var(--primary) / 0.18) 2px,
+      hsla(var(--primary) / 0.08) 2px,
       transparent 2px
     );
   background-size:
@@ -111,10 +111,10 @@
 
 @layer components {
   .gradient-primary {
-    @apply bg-gradient-to-br from-primary to-green-600 text-primary-foreground;
+    @apply bg-gradient-to-br from-primary to-blue-500 text-primary-foreground;
   }
   .gradient-primary:hover {
-    @apply from-primary/90 to-green-600/90;
+    @apply from-primary/90 to-blue-500/90;
   }
 }
 
