@@ -20,7 +20,7 @@ export function HeroSection() {
           Transform <span className="text-primary">Tax & Finance</span> Into Growth — Fast.
         </h1>
         <p className="mt-6 max-w-2xl text-md md:text-xl text-muted-foreground">
-          We are a versatile team of problem solvers dedicated to helping you navigate the complexities of technology and achieve your business goals.
+          We map simplified workflows to build audit-ready tax automation that slashes preparation time, eliminates errors, and gives you a smarter way to manage your tax obligations.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
           <Button size="lg" asChild>
