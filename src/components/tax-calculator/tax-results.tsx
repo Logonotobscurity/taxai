@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { calculateTaxAction } from '@/app/actions';
 import type { TaxFormSchema } from '@/lib/schemas';
-import type { CalculateTaxWithAIOutput } from '@/ai/flows/calculate-tax-with-ai';
+import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -27,7 +27,7 @@ import { Pie, PieChart } from 'recharts';
 
 type TaxResultsProps = {
   taxData: z.infer<typeof TaxFormSchema> | null;
-  onCalculationComplete: (results: CalculateTaxWithAIOutput) => void;
+  onCalculationComplete: (results: CalculateTaxWithRulesOutput) => void;
   onNext: () => void;
   onBack: () => void;
 };
@@ -53,7 +53,7 @@ export function TaxResults({
   onNext,
   onBack,
 }: TaxResultsProps) {
-  const [results, setResults] = useState<CalculateTaxWithAIOutput | null>(
+  const [results, setResults] = useState<CalculateTaxWithRulesOutput | null>(
     null
   );
   const [loading, setLoading] = useState(true);

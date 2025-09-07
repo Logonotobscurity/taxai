@@ -22,10 +22,10 @@ import {
 } from '@/components/ui/accordion';
 
 import type { TaxFormSchema } from '@/lib/schemas';
-import type { CalculateTaxWithAIOutput } from '@/ai/flows/calculate-tax-with-ai';
+import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
 
 type AiInsightsProps = {
-  results: CalculateTaxWithAIOutput | null;
+  results: CalculateTaxWithRulesOutput | null;
   taxData: z.infer<typeof TaxFormSchema> | null;
   onNext: () => void;
   onBack: () => void;

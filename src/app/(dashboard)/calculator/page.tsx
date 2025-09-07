@@ -9,7 +9,7 @@ import { TaxResults } from '@/components/tax-calculator/tax-results';
 import { AiInsights } from '@/components/tax-calculator/ai-insights';
 import { FirsSubmission } from '@/components/tax-calculator/firs-submission';
 import type { TaxFormSchema } from '@/lib/schemas';
-import type { CalculateTaxWithAIOutput } from '@/ai/flows/calculate-tax-with-ai';
+import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
 
 const steps = [
   { id: '01', name: 'Tax Information', href: '#' },
@@ -23,7 +23,7 @@ export default function CalculatorPage() {
   const [taxData, setTaxData] = useState<z.infer<typeof TaxFormSchema> | null>(
     null
   );
-  const [results, setResults] = useState<CalculateTaxWithAIOutput | null>(null);
+  const [results, setResults] = useState<CalculateTaxWithRulesOutput | null>(null);
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
@@ -43,7 +43,7 @@ export default function CalculatorPage() {
   };
 
   const handleCalculationComplete = (
-    calculationResults: CalculateTaxWithAIOutput
+    calculationResults: CalculateTaxWithRulesOutput
   ) => {
     setResults(calculationResults);
     handleNext();

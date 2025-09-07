@@ -9,10 +9,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import type { CalculateTaxWithAIOutput } from '@/ai/flows/calculate-tax-with-ai';
+import type { CalculateTaxWithRulesOutput } from '@/ai/flows/calculate-tax-with-rules';
 
 type FirsSubmissionProps = {
-  results: CalculateTaxWithAIOutput | null;
+  results: CalculateTaxWithRulesOutput | null;
   onBack: () => void;
 };
 

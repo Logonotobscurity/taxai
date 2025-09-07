@@ -90,7 +90,7 @@ export class TaxCalculationService {
 
       const rangeEnd = previousLimit + bracket.limit;
       taxBrackets.push({
-        range: `₦${previousLimit.toLocaleString()} - ₦${rangeEnd.toLocaleString()}`,
+        range: `₦${previousLimit.toLocaleString()} - ₦${rangeEnd > 1_000_000_000 ? 'Above' : rangeEnd.toLocaleString()}`,
         rate: bracket.rate * 100,
         tax: taxInBracket,
       });
