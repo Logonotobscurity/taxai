@@ -14,21 +14,21 @@ const insights = [
     {
         title: "FIRS Announces New Digital Filing Mandates for 2025",
         description: "Understand the upcoming changes to digital tax submissions and how TaxComply AI ensures you remain compliant with the new FIRS portal requirements.",
-        image: "https://picsum.photos/600/400",
+        image: "https://picsum.photos/600/401",
         tags: ["FIRS", "Compliance"],
         link: "#"
     },
     {
         title: "Unlocking a New Tax Incentive for Tech Startups",
         description: "A deep dive into the latest government incentive designed to foster growth in the tech sector. Learn if your business qualifies and how to apply.",
-        image: "https://picsum.photos/600/400",
+        image: "https://picsum.photos/600/402",
         tags: ["Incentives", "Startups"],
         link: "#"
     },
     {
         title: "Navigating Changes in Capital Gains Tax Regulations",
         description: "Recent amendments to the Capital Gains Tax Act could impact your investment strategy. Here's what you need to know to stay ahead.",
-        image: "https://picsum.photos/600/400",
+        image: "https://picsum.photos/600/403",
         tags: ["Tax Law", "Investment"],
         link: "#"
     }
@@ -45,9 +45,9 @@ export function FeaturedInsightsSection() {
           </p>
         </div>
         <div className="mt-12 grid lg:grid-cols-3 gap-8">
-            {insights.map(insight => (
+            {insights.map((insight, index) => (
                 <Card key={insight.title} className="overflow-hidden group">
-                    <Image src={insight.image} width={600} height={400} alt={insight.title} data-ai-hint="finance news" className="w-full h-48 object-cover"/>
+                    <Image src={insight.image} width={600} height={400 + (index + 1)} alt={insight.title} data-ai-hint={index === 2 ? "investment stocks" : "financial charts"} className="w-full h-48 object-cover"/>
                     <CardHeader>
                         <div className="flex gap-2 mb-2">
                             {insight.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
