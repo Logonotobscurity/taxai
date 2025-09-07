@@ -6,9 +6,9 @@ export function StatementSection() {
       <div className="circuit-background"></div>
       <div className="container relative z-10 text-center max-w-4xl mx-auto">
         <h2 className="text-[clamp(1.8rem,5vw,3rem)] font-bold uppercase">
-          We are a <span className="text-primary">small</span> team, but we are{' '}
-          <span className="text-accent">versatile</span> and we deliver{' '}
-          <span className="text-primary">results</span>.
+          Create accurate financial forecasts and tax scenarios with our
+          powerful modeling tools that adapt to changing regulations and
+          business conditions.
         </h2>
         <Button size="lg" className="mt-8">
           Start a Conversation
