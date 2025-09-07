@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -162,7 +163,7 @@ export function ChatInterfaceSection() {
 
 
   return (
-    <section className="flex justify-center py-16 md:py-24">
+    <section className="flex justify-center py-8 md:py-12">
       <div className="w-full max-w-4xl p-4">
         <form
           className="relative rounded-lg border bg-background p-1 focus-within:ring-1 focus-within:ring-ring"
