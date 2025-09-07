@@ -1,41 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-
-function SolutionRecommendationForm() {
-  return (
-    <form className="space-y-4">
-      <div>
-        <Label htmlFor="companyName">Company Name</Label>
-        <Input id="companyName" placeholder="e.g. Innovate Inc." />
-      </div>
-      <div>
-        <Label htmlFor="industry">Industry</Label>
-        <Input id="industry" placeholder="e.g. E-commerce" />
-      </div>
-      <div>
-        <Label htmlFor="challenge">Biggest Challenge</Label>
-        <Input
-          id="challenge"
-          placeholder="e.g. Scaling customer support"
-        />
-      </div>
-      <Button type="submit" className="w-full">
-        Get Recommendations
-      </Button>
-    </form>
-  );
-}
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
@@ -57,20 +23,9 @@ export function HeroSection() {
           We are a versatile team of problem solvers dedicated to helping you navigate the complexities of technology and achieve your business goals.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg">Get Your Free AI Assessment</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>AI Solution Recommendation</DialogTitle>
-                <DialogDescription>
-                  Tell us a bit about your business, and our AI will suggest a technology solution.
-                </DialogDescription>
-              </DialogHeader>
-              <SolutionRecommendationForm />
-            </DialogContent>
-          </Dialog>
+          <Button size="lg" asChild>
+            <Link href="/calculator">Start Calculating Taxes</Link>
+          </Button>
           <Button size="lg" variant="secondary">
             Explore Our Services
           </Button>
