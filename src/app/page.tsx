@@ -8,7 +8,6 @@ import { HeroSection } from '@/components/landing/hero';
 import { StatementSection } from '@/components/landing/statement';
 import { StrategicPartnerSection } from '@/components/landing/strategic-partner';
 import { TechStackCarouselSection } from '@/components/landing/tech-stack-carousel';
-import { TrainingCtaSection } from '@/components/landing/training-cta';
 
 export default function LandingPage() {
   return (
@@ -18,7 +17,6 @@ export default function LandingPage() {
         <HeroSection />
         <StrategicPartnerSection />
         <GeneralistApproachSection />
-        <TrainingCtaSection />
         <StatementSection />
         <FeaturedInsightsSection />
         <FaqSection />
