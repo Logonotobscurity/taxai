@@ -13,73 +13,75 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/auth-context';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/context/auth-context';
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter();
   const { login } = useAuth();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call
+    
+    // In a real app, you'd have API logic here.
+    // For this prototype, we'll just simulate success and redirect.
     setTimeout(() => {
-      try {
-        login({ email: 'user@example.com', name: 'Demo User' });
-        toast({
-          title: 'Login Successful',
-          description: "Welcome back!",
-        });
-        router.push('/dashboard');
-      } catch (error) {
-        toast({
-          variant: 'destructive',
-          title: 'Login Failed',
-          description: 'Please check your credentials and try again.',
-        });
-        setLoading(false);
-      }
+        try {
+            // Simulate creating a user and logging them in
+            login({ email: 'user@example.com', name: 'Demo User' });
+            toast({
+                title: 'Account Created',
+                description: "Welcome to TaxAI! We're glad to have you.",
+            });
+            router.push('/dashboard');
+        } catch (error) {
+            toast({
+                variant: 'destructive',
+                title: 'Signup Failed',
+                description: 'Could not create your account. Please try again.',
+            });
+            setLoading(false);
+        }
     }, 1000);
   };
   
   return (
     <Card>
       <CardHeader className="space-y-1 text-center">
-        <CardTitle>Welcome Back</CardTitle>
+        <CardTitle>Create an Account</CardTitle>
         <CardDescription>
-          Enter your credentials to access your account
+          Enter your information to get started
         </CardDescription>
       </CardHeader>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSignup}>
         <CardContent className="grid gap-4">
+          <div className="grid gap-2">
+            <Label htmlFor="name">Full Name</Label>
+            <Input id="name" placeholder="John Doe" required />
+          </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input id="email" type="email" placeholder="m@example.com" required />
           </div>
           <div className="grid gap-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-              <Link href="#" className="ml-auto inline-block text-sm underline">
-                Forgot your password?
-              </Link>
-            </div>
+            <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" required />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <Button className="w-full gradient-primary" type="submit" disabled={loading}>
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Sign in
+             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Create Account
           </Button>
           <p className="text-sm text-center text-muted-foreground">
-            Don&apos;t have an account?{' '}
-            <Link href="/signup" className="font-medium text-primary hover:underline">
-              Sign up
+            Already have an account?{' '}
+            <Link href="/login" className="font-medium text-primary hover:underline">
+              Sign in
             </Link>
           </p>
         </CardFooter>
