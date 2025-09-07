@@ -26,7 +26,7 @@ type Rule = {
 export function TaxConstitutionBrowser({ taxYear = '2025' }) {
   const [rules, setRules] = useState<Rule[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRule, setSelectedRule] = useState<Rule | null>(null);
 
@@ -49,7 +49,7 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
 
   const filteredRules = rules.filter((rule) => {
     const matchesCategory =
-      !selectedCategory || rule.category === selectedCategory;
+      selectedCategory === 'all' || rule.category === selectedCategory;
     const matchesSearch =
       !searchTerm ||
       rule.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -108,7 +108,7 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map((category) => (
                   <SelectItem key={category} value={category}>
                     {category}
