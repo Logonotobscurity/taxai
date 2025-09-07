@@ -232,7 +232,7 @@ export function ChatInterfaceSection() {
             )}
           </div>
 
-          <div className="flex items-center justify-between p-3 border-t">
+          <div className="flex items-center justify-between p-3">
             <div className="flex items-center gap-2">
                <input 
                 type="file" 
