@@ -1,18 +1,17 @@
 'use server';
 
-import { calculateTaxWithAI } from '@/ai/flows/calculate-tax-with-ai';
+import { calculateTaxWithRules } from '@/ai/flows/calculate-tax-with-rules';
 import { generatePersonalizedTaxInsights } from '@/ai/flows/generate-personalized-tax-insights';
 import { proposeTaxOptimizationStrategies } from '@/ai/flows/propose-tax-optimization-strategies';
 import { generateFormulaFromNL } from '@/ai/flows/generate-formula-from-nl';
 import type { z } from 'zod';
-import type {
-  ProposeTaxOptimizationStrategiesInput,
-  GeneratePersonalizedTaxInsightsInput,
-} from '@/ai/flows/propose-tax-optimization-strategies';
+import type { ProposeTaxOptimizationStrategiesInput } from '@/ai/flows/propose-tax-optimization-strategies';
+import type { GeneratePersonalizedTaxInsightsInput } from '@/ai/flows/generate-personalized-tax-insights';
 import type { TaxFormSchema } from '@/lib/schemas';
 import { FormulaEngine } from '@/services/formula-engine';
 import { TaxRulesEngine } from '@/services/tax-rules-engine';
 import { JudicialPrecedentSystem } from '@/services/judicial-precedent-system';
+import { TaxCalculationService } from '@/services/tax-calculation-service';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -25,7 +24,7 @@ export async function calculateTaxAction(
     allowances: data.allowances,
   };
 
-  const result = await calculateTaxWithAI({
+  const result = await calculateTaxWithRules({
     taxData,
     calculationType: data.calculationType,
   });
@@ -84,7 +83,10 @@ export async function getPrecedentsForRuleAction(ruleName: string) {
   }));
 }
 
-export async function generateFormulaAction(naturalLanguage: string, context: Record<string, any>) {
+export async function generateFormulaAction(
+  naturalLanguage: string,
+  context: Record<string, any>
+) {
   const result = await generateFormulaFromNL({ naturalLanguage, context });
   return result;
 }
