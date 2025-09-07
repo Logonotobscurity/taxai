@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { HelpCircle, ShieldCheck, Users, BrainCircuit } from 'lucide-react';
+import { HelpCircle, ShieldCheck, Users, BrainCircuit, Book, LifeBuoy } from 'lucide-react';
 
 const faqItems = [
     {
@@ -26,6 +26,16 @@ const faqItems = [
         icon: BrainCircuit,
         question: "How accurate is the AI tax calculation?",
         answer: "Our AI is trained on the latest FIRS guidelines and Nigerian tax laws to ensure high accuracy. While TaxComply AI provides powerful tools and insights, we always recommend consulting with a qualified tax professional for complex financial decisions."
+    },
+    {
+        icon: Book,
+        question: "How does the AI stay updated with changing tax laws?",
+        answer: "Our platform's tax rules engine is continuously updated by our team of tax experts to reflect the latest changes in Nigerian tax legislation, FIRS circulars, and judicial precedents. This ensures that all calculations and advice are based on the most current information."
+    },
+    {
+        icon: LifeBuoy,
+        question: "What kind of support do you offer?",
+        answer: "We offer comprehensive customer support through email and our in-app chat. Our team is ready to assist you with any questions about using the platform. For complex tax advisory, we recommend consulting with a certified professional."
     }
 ]
 
