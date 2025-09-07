@@ -11,11 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger
-} from '@/components/ui/dialog';
+import Link from 'next/link';
 
 export function StrategicPartnerSection() {
   return (
@@ -65,8 +61,7 @@ export function StrategicPartnerSection() {
           </ol>
         </div>
         <div className="space-y-8">
-          <Dialog>
-            <DialogTrigger asChild>
+            <Link href="/ai-advisor">
               <Card className="cursor-pointer transition-all hover:-translate-y-2">
                 <CardHeader>
                   <BrainCircuit className="h-10 w-10 text-primary mb-4" />
@@ -75,19 +70,13 @@ export function StrategicPartnerSection() {
                     Leverage artificial intelligence to automate processes and unlock new efficiencies.
                   </CardDescription>
                   <span className="flex items-center text-sm font-semibold text-primary mt-2 group">
-                    Learn More
+                    Explore the AI Advisor
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </CardHeader>
               </Card>
-            </DialogTrigger>
-            <DialogContent>
-              {/* Content for AI & Automation */}
-              AI & Automation details...
-            </DialogContent>
-          </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
+            </Link>
+             <Link href="/formula-sandbox">
               <Card className="cursor-pointer transition-all hover:-translate-y-2">
                 <CardHeader>
                   <Calculator className="h-10 w-10 text-primary mb-4" />
@@ -96,17 +85,12 @@ export function StrategicPartnerSection() {
                     Build robust financial models to forecast, plan, and optimize your tax strategy.
                   </CardDescription>
                    <span className="flex items-center text-sm font-semibold text-primary mt-2 group">
-                    Learn More
+                    Try the Formula Sandbox
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </CardHeader>
               </Card>
-            </DialogTrigger>
-            <DialogContent>
-              {/* Content for Financial & Tax Modeling */}
-              Financial & Tax Modeling details...
-            </DialogContent>
-          </Dialog>
+            </Link>
         </div>
       </div>
     </section>
