@@ -1,6 +1,7 @@
 import { Bell } from 'lucide-react';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from './theme-toggle';
 
 export function Header() {
   return (
@@ -13,6 +14,7 @@ export function Header() {
           </h1>
         </div>
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Button variant="ghost" size="icon" className="rounded-full">
             <Bell className="h-5 w-5" />
             <span className="sr-only">Notifications</span>
