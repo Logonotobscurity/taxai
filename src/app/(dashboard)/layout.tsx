@@ -32,7 +32,6 @@ export default function DashboardLayout({
             <SidebarNav />
           </SidebarContent>
           <SidebarFooter className='p-2'>
-            {/* @ts-ignore */}
             <UserNav />
           </SidebarFooter>
         </Sidebar>
