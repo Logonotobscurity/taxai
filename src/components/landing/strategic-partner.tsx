@@ -65,7 +65,7 @@ export function StrategicPartnerSection() {
               <Card className="cursor-pointer transition-all hover:-translate-y-2">
                 <CardHeader>
                   <BrainCircuit className="h-10 w-10 text-primary mb-4" />
-                  <CardTitle>AI & Automation</CardTitle>
+                  <CardTitle>AI Advisor</CardTitle>
                   <CardDescription>
                     Leverage artificial intelligence to automate processes and unlock new efficiencies.
                   </CardDescription>
