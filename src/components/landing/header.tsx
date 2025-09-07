@@ -10,16 +10,16 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Logo className="size-8 text-primary" />
-            <span className="font-headline text-lg font-semibold text-primary">TaxAI</span>
+            <span className="font-headline text-lg font-semibold text-primary">LOG_ON</span>
           </Link>
           <nav className="hidden md:flex md:gap-4">
-            <Link href="#features" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-              Features
+            <Link href="#services" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Services
             </Link>
-            <Link href="/login" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-              Pricing
+            <Link href="#insights" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Insights
             </Link>
-            <Link href="/login" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <Link href="#contact" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
               Contact
             </Link>
           </nav>

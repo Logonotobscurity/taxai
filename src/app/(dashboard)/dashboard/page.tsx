@@ -55,7 +55,7 @@ export default function Dashboard() {
       className="flex w-full flex-col"
     >
       <main className="flex flex-1 flex-col gap-4 md:gap-8">
-        <div className="grid grid-cols-1 gap-4 md:gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {/* Main Interactive Element */}
           <div className="lg:col-span-2">
             <QuickTaxEstimator />

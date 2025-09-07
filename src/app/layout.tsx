@@ -21,28 +21,27 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://taxai.pro'), // Replace with your actual domain
+  metadataBase: new URL('https://log-on.pro'), // Replace with your actual domain
   title: {
-    default: 'TaxAI - Your FIRS Finance Partner',
-    template: '%s | TaxAI',
+    default: 'LOG_ON - Your Generalist Tech Partner',
+    template: '%s | LOG_ON',
   },
   description:
-    'AI-Powered Tax Calculation and Optimization for Nigerian Professionals and SMEs. Simplify your FIRS tax compliance with smart tools and personalized insights.',
+    'The generalist tech solution for ambitious companies. We are a versatile team of problem solvers dedicated to helping you navigate the complexities of technology and achieve your business goals.',
   keywords: [
-    'tax calculator',
-    'Nigeria tax',
-    'FIRS',
-    'PAYE',
-    'tax optimization',
-    'AI finance',
+    'tech solutions',
+    'AI automation',
+    'financial modeling',
+    'custom software',
+    'cloud architecture',
   ],
-  authors: [{ name: 'TaxAI Team' }],
+  authors: [{ name: 'LOG_ON Team' }],
   openGraph: {
-    title: 'TaxAI - AI-Powered Tax Compliance',
+    title: 'LOG_ON - Generalist Tech Solutions',
     description:
-      'Simplify your Nigerian taxes with AI. Instant calculations, smart insights, and easy compliance.',
-    url: 'https://taxai.pro', // Replace with your actual domain
-    siteName: 'TaxAI',
+      'Versatile tech solutions for ambitious companies. AI, custom software, and cloud architecture.',
+    url: 'https://log-on.pro', // Replace with your actual domain
+    siteName: 'LOG_ON',
     images: [
       {
         url: '/og-image.png', // It's good practice to have an OG image
@@ -55,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TaxAI - AI-Powered Tax Compliance',
+    title: 'LOG_ON - Generalist Tech Solutions',
     description:
-      'Simplify your Nigerian taxes with AI. Instant calculations, smart insights, and easy compliance.',
+      'Versatile tech solutions for ambitious companies. AI, custom software, and cloud architecture.',
     images: ['/og-image.png'], // It's good practice to have an OG image
   },
 };

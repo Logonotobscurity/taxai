@@ -1,9 +1,15 @@
-import { HeroSection } from '@/components/landing/hero-section';
-import { FeaturesSection } from '@/components/landing/features-section';
-import { CtaSection } from '@/components/landing/cta-section';
+import { ChatbotEmbedSection } from '@/components/landing/chatbot-embed';
+import { FaqSection } from '@/components/landing/faq';
+import { FeaturedInsightsSection } from '@/components/landing/featured-insights';
 import { Footer } from '@/components/landing/footer';
+import { GeneralistApproachSection } from '@/components/landing/generalist-approach';
 import { Header } from '@/components/landing/header';
-import { WelcomeModal } from '@/components/landing/welcome-modal';
+import { HeroSection } from '@/components/landing/hero';
+import { PartnershipApproachSection } from '@/components/landing/partnership-approach';
+import { StatementSection } from '@/components/landing/statement';
+import { StrategicPartnerSection } from '@/components/landing/strategic-partner';
+import { TechStackCarouselSection } from '@/components/landing/tech-stack-carousel';
+import { TrainingCtaSection } from '@/components/landing/training-cta';
 
 export default function LandingPage() {
   return (
@@ -11,11 +17,17 @@ export default function LandingPage() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <FeaturesSection />
-        <CtaSection />
+        <StrategicPartnerSection />
+        <GeneralistApproachSection />
+        <PartnershipApproachSection />
+        <TrainingCtaSection />
+        <StatementSection />
+        <FeaturedInsightsSection />
+        <FaqSection />
+        <ChatbotEmbedSection />
+        <TechStackCarouselSection />
       </main>
       <Footer />
-      <WelcomeModal />
     </div>
   );
 }
