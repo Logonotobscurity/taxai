@@ -4,28 +4,28 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { HelpCircle, Clock, DollarSign, Users } from 'lucide-react';
+import { HelpCircle, ShieldCheck, Users, BrainCircuit } from 'lucide-react';
 
 const faqItems = [
     {
         icon: HelpCircle,
-        question: "What kind of companies do you work with?",
-        answer: "We work with a wide range of companies, from early-stage startups to established enterprises, across various industries. Our ideal partner is any business looking to leverage technology for growth and efficiency."
-    },
-    {
-        icon: Clock,
-        question: "How long does a typical project take?",
-        answer: "Project timelines vary depending on the scope and complexity. A small assessment might take a week, while a custom software build could take several months. We always provide a detailed timeline after the initial discovery phase."
-    },
-    {
-        icon: DollarSign,
-        question: "What are your pricing models?",
-        answer: "We offer flexible pricing models, including project-based fees, monthly retainers for ongoing support, and corporate training packages. We work with you to find a model that fits your budget and needs."
+        question: "What is TaxAI?",
+        answer: "TaxAI is an AI-powered platform designed to simplify tax compliance for individuals and businesses in Nigeria. It provides instant tax calculations, personalized financial insights, and tools for document management and FIRS submissions, all based on the latest tax laws."
     },
     {
         icon: Users,
-        question: "Do you provide ongoing support after a project is complete?",
-        answer: "Yes, we believe in long-term partnerships. We offer various levels of ongoing support and maintenance to ensure your solutions continue to perform optimally and evolve with your business."
+        question: "Who can use TaxAI?",
+        answer: "TaxAI is built for a wide range of users, including salaried individuals, freelancers, small business owners, and finance professionals who need to manage their tax obligations accurately and efficiently."
+    },
+    {
+        icon: ShieldCheck,
+        question: "Is my financial data secure?",
+        answer: "Yes, security is our top priority. We use industry-standard encryption and security protocols to protect your data. All information is stored securely, and we never share your data without your explicit consent."
+    },
+    {
+        icon: BrainCircuit,
+        question: "How accurate is the AI tax calculation?",
+        answer: "Our AI is trained on the latest FIRS guidelines and Nigerian tax laws to ensure high accuracy. While TaxAI provides powerful tools and insights, we always recommend consulting with a qualified tax professional for complex financial decisions."
     }
 ]
 
