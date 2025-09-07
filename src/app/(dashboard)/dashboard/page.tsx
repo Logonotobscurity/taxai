@@ -12,7 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import {
   ChartContainer,
   ChartTooltip,
@@ -69,8 +68,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="grid gap-4 md:gap-8 lg:grid-cols-3">
-          <Card className="lg:col-span-2 transition-all hover:shadow-md">
+        <div className="grid gap-4 md:gap-8 lg:grid-cols-2">
+          <Card className="transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Tax Overview</CardTitle>
@@ -86,7 +85,7 @@ export default function Dashboard() {
               </Button>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={chartConfig} className="h-80 w-full min-h-[200px]">
+              <ChartContainer config={chartConfig} className="h-60 w-full sm:h-80">
                 <BarChart
                   data={chartData}
                   margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
