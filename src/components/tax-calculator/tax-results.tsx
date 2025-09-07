@@ -6,8 +6,8 @@ import {
   TrendingUp,
   TrendingDown,
   Landmark,
-  ArrowBack,
-  ArrowForward,
+  ArrowLeft,
+  ArrowRight,
   CheckCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -238,12 +238,12 @@ export function TaxResults({
 
       <div className="flex justify-between">
         <Button variant="outline" onClick={onBack} size="lg">
-          <ArrowBack className="mr-2 h-4 w-4" />
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Input
         </Button>
         <Button onClick={handleProceed} size="lg">
           View AI Insights
-          <ArrowForward className="ml-2 h-4 w-4" />
+          <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </div>

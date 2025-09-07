@@ -1,5 +1,5 @@
 'use client';
-import { ArrowBack, Send } from 'lucide-react';
+import { ArrowLeft, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -52,7 +52,7 @@ export function FirsSubmission({ results, onBack }: FirsSubmissionProps) {
       </Card>
       <div className="flex justify-between">
         <Button variant="outline" onClick={onBack} size="lg">
-          <ArrowBack className="mr-2 h-4 w-4" />
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Back to AI Insights
         </Button>
         <Button onClick={handleSubmit} size="lg" className="bg-accent hover:bg-accent/90">

@@ -2,8 +2,8 @@
 import type { z } from 'zod';
 import {
   TrendingUp,
-  ArrowBack,
-  ArrowForward,
+  ArrowLeft,
+  ArrowRight,
   Lightbulb,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -75,12 +75,12 @@ export function AiInsights({ results, taxData, onNext, onBack }: AiInsightsProps
       </Card>
       <div className="flex justify-between">
         <Button variant="outline" onClick={onBack} size="lg">
-          <ArrowBack className="mr-2 h-4 w-4" />
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Results
         </Button>
         <Button onClick={onNext} size="lg">
           Proceed to Submission
-          <ArrowForward className="ml-2 h-4 w-4" />
+          <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </div>
