@@ -31,7 +31,7 @@ export function Footer() {
             <Logo className="h-8 w-auto text-muted-foreground" />
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-muted-foreground">
-          &copy; {new Date().getFullYear()} LOG_ON, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} TaxComply AI, Inc. All rights reserved.
         </p>
       </div>
     </footer>

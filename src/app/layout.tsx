@@ -21,27 +21,27 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://log-on.pro'), // Replace with your actual domain
+  metadataBase: new URL('https://taxcomply.ai'), // Replace with your actual domain
   title: {
-    default: 'LOG_ON - Your Generalist Tech Partner',
-    template: '%s | LOG_ON',
+    default: 'TaxComply AI - AI-Powered Tax Solutions',
+    template: '%s | TaxComply AI',
   },
   description:
-    'The generalist tech solution for ambitious companies. We are a versatile team of problem solvers dedicated to helping you navigate the complexities of technology and achieve your business goals.',
+    'TaxComply AI is an intelligent platform that helps you handle your FIRS taxes with accuracy, ease, and peace of mind. Get instant calculations, personalized insights, and seamless compliance.',
   keywords: [
-    'tech solutions',
-    'AI automation',
-    'financial modeling',
-    'custom software',
-    'cloud architecture',
+    'tax compliance',
+    'AI tax assistant',
+    'FIRS tax calculator',
+    'tax optimization',
+    'Nigeria tax laws',
   ],
-  authors: [{ name: 'LOG_ON Team' }],
+  authors: [{ name: 'TaxComply AI Team' }],
   openGraph: {
-    title: 'LOG_ON - Generalist Tech Solutions',
+    title: 'TaxComply AI - AI-Powered Tax Solutions',
     description:
-      'Versatile tech solutions for ambitious companies. AI, custom software, and cloud architecture.',
-    url: 'https://log-on.pro', // Replace with your actual domain
-    siteName: 'LOG_ON',
+      'Handle your FIRS taxes with accuracy and ease. Get instant calculations, personalized insights, and seamless compliance.',
+    url: 'https://taxcomply.ai', // Replace with your actual domain
+    siteName: 'TaxComply AI',
     images: [
       {
         url: '/og-image.png', // It's good practice to have an OG image
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LOG_ON - Generalist Tech Solutions',
+    title: 'TaxComply AI - AI-Powered Tax Solutions',
     description:
-      'Versatile tech solutions for ambitious companies. AI, custom software, and cloud architecture.',
+      'Handle your FIRS taxes with accuracy and ease. Get instant calculations, personalized insights, and seamless compliance.',
     images: ['/og-image.png'], // It's good practice to have an OG image
   },
 };

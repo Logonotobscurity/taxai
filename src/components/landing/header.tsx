@@ -10,7 +10,7 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Logo className="size-8 text-primary" />
-            <span className="font-headline text-lg font-semibold text-primary">LOG_ON</span>
+            <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
           </Link>
           <nav className="hidden md:flex md:gap-4">
             <Link href="#services" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">

@@ -27,7 +27,7 @@ export default function DashboardLayout({
           <SidebarHeader>
             <Link href="/" className="flex items-center gap-2 p-2">
               <Logo className="size-8 text-primary" />
-              <span className="font-headline text-lg font-semibold text-primary">LOG_ON</span>
+              <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
             </Link>
           </SidebarHeader>
           <SidebarContent className="p-2">
