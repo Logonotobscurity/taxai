@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/context/auth-context';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const anton = Anton({
   subsets: ['latin'],
@@ -74,10 +75,17 @@ export default function RootLayout({
           rubik.variable
         )}
       >
-        <AuthProvider>
-          <div className="relative flex min-h-dvh flex-col">{children}</div>
-          <Toaster />
-        </AuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            <div className="relative flex min-h-dvh flex-col">{children}</div>
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

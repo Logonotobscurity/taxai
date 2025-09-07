@@ -18,6 +18,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { ThemeToggle } from '../theme-toggle';
 
 const navLinks = [
   { href: '#features', label: 'Features' },
@@ -83,6 +84,7 @@ export function Header() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <Button className="gradient-primary shadow" asChild>
             <Link href="/dashboard">Get Started</Link>
           </Button>
@@ -136,7 +138,8 @@ export function Header() {
                 </div>
                 <div className="p-4 border-t mt-auto">
                     <div className="flex items-center justify-between">
-                        <Button className="gradient-primary shadow w-full" asChild>
+                        <ThemeToggle />
+                        <Button className="gradient-primary shadow" asChild>
                             <Link href="/dashboard">Get Started</Link>
                         </Button>
                     </div>
