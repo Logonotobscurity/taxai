@@ -1,5 +1,5 @@
 import { Briefcase, ShieldCheck, PieChart } from 'lucide-react';
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const roles = [
     {
