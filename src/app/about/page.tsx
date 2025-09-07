@@ -51,8 +51,8 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-secondary/20 py-20 md:py-32">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+        <div className="container mx-auto text-center px-4">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             We're simplifying tax compliance for everyone.
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       {/* Values Section */}
        <section className="py-16 md:py-24">
-        <div className="container">
+        <div className="container px-4">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight">Our Core Values</h2>
             <p className="mt-4 text-muted-foreground">The principles that guide our mission and our work.</p>
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="bg-secondary/20 py-16 md:py-24">
-        <div className="container">
+        <div className="container px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight">
               Meet the Innovators
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-20 md:py-32">
-        <div className="container mx-auto max-w-4xl text-center">
+        <div className="container mx-auto max-w-4xl text-center px-4">
           <h2 className="text-3xl font-bold tracking-tight">
             Ready to Transform Your Tax Experience?
           </h2>

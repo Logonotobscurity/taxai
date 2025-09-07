@@ -115,8 +115,9 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
     <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
       <aside className="md:col-span-4 lg:col-span-3 space-y-4">
         <div>
-          <label className="text-sm font-medium">Search Rules</label>
+          <label htmlFor="search-rules" className="text-sm font-medium">Search Rules</label>
           <Input
+            id="search-rules"
             type="text"
             placeholder="e.g., Consolidated Relief"
             value={searchTerm}
@@ -125,12 +126,12 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
           />
         </div>
         <div>
-          <label className="text-sm font-medium">Filter by Category</label>
+          <label htmlFor="filter-category" className="text-sm font-medium">Filter by Category</label>
           <Select
             value={selectedCategory}
             onValueChange={setSelectedCategory}
           >
-            <SelectTrigger className="mt-1">
+            <SelectTrigger id="filter-category" className="mt-1">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
             <SelectContent>
@@ -153,12 +154,15 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
           {filteredRules.map((rule) => (
             <div
               key={rule.id}
-              className={`cursor-pointer rounded-md border p-4 transition-all hover:bg-muted/50 ${
+              role="button"
+              tabIndex={0}
+              className={`cursor-pointer rounded-md border p-4 transition-all hover:bg-muted/50 focus:outline-none focus:ring-2 focus:ring-primary ${
                 selectedRule?.id === rule.id
                   ? 'bg-muted ring-2 ring-primary'
                   : ''
               }`}
               onClick={() => handleRuleSelect(rule)}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleRuleSelect(rule)}
             >
               <h4 className="font-semibold">{rule.id}</h4>
               <p className="text-sm text-muted-foreground">

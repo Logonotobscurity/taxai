@@ -24,8 +24,8 @@ import { Label } from '@/components/ui/label';
 export default function DocumentsPage() {
   return (
     <div className="grid flex-1 items-start gap-4 md:gap-8">
-      <div className="grid auto-rows-max items-start gap-4 lg:grid-cols-2 lg:gap-8">
-        <Card className="lg:col-span-2">
+      <div className="grid auto-rows-max items-start gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <Card className="md:col-span-2 lg:col-span-3">
           <CardHeader>
             <CardTitle>My Documents</CardTitle>
             <CardDescription>
@@ -73,7 +73,7 @@ export default function DocumentsPage() {
             </Button>
           </CardFooter>
         </Card>
-        <Card className="overflow-hidden lg:col-span-2">
+        <Card className="overflow-hidden md:col-span-2 lg:col-span-3">
           <CardHeader>
             <CardTitle>Upload New Document</CardTitle>
             <CardDescription>
