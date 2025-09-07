@@ -12,6 +12,10 @@ import { FormulaEngine } from '@/services/formula-engine';
 import { TaxRulesEngine } from '@/services/tax-rules-engine';
 import { JudicialPrecedentSystem } from '@/services/judicial-precedent-system';
 import { TaxCalculationService } from '@/services/tax-calculation-service';
+import {
+  processText,
+  type ProcessTextInput,
+} from '@/ai/flows/process-text-flow';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -88,5 +92,10 @@ export async function generateFormulaAction(
   context: Record<string, any>
 ) {
   const result = await generateFormulaFromNL({ naturalLanguage, context });
+  return result;
+}
+
+export async function processTextAction(data: ProcessTextInput) {
+  const result = await processText(data);
   return result;
 }
