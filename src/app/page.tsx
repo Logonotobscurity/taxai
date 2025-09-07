@@ -1,4 +1,3 @@
-import { ChatbotEmbedSection } from '@/components/landing/chatbot-embed';
 import { FaqSection } from '@/components/landing/faq';
 import { FeaturedInsightsSection } from '@/components/landing/featured-insights';
 import { Footer } from '@/components/landing/footer';
@@ -24,7 +23,6 @@ export default function LandingPage() {
         <StatementSection />
         <FeaturedInsightsSection />
         <FaqSection />
-        <ChatbotEmbedSection />
         <TechStackCarouselSection />
       </main>
       <Footer />
