@@ -27,7 +27,7 @@ export function HeroSection() {
             <Link href="/calculator">Start Calculating Taxes</Link>
           </Button>
           <Button size="lg" variant="secondary">
-            Explore Our Services
+            Explore Compliance Features
           </Button>
         </div>
       </div>
