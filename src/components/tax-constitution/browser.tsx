@@ -112,8 +112,8 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
-      <aside className="lg:col-span-1 md:col-span-3 space-y-4">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+      <aside className="md:col-span-4 lg:col-span-3 space-y-4">
         <div>
           <label className="text-sm font-medium">Search Rules</label>
           <Input
@@ -145,7 +145,7 @@ export function TaxConstitutionBrowser({ taxYear = '2025' }) {
         </div>
       </aside>
 
-      <div className="md:col-span-3 lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="md:col-span-8 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="lg:col-span-1 space-y-2 max-h-[60vh] overflow-y-auto pr-2">
           <h3 className="text-lg font-semibold">
             Tax Rules ({filteredRules.length})
