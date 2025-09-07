@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[90vh] w-full items-center">
+    <section className="relative flex min-h-[80vh] w-full items-center">
       <div className="absolute inset-0 -z-10 h-full w-full">
         <div className="circuit-background"></div>
         <div className="absolute -top-24 left-1/2 -z-10 h-96 w-[150%] -translate-x-1/2 transform-gpu blur-3xl" aria-hidden="true">
@@ -23,9 +23,6 @@ export function HeroSection() {
           We map simplified workflows to build audit-ready tax automation that slashes preparation time, eliminates errors, and gives you a smarter way to manage your tax obligations.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Button size="lg" asChild>
-            <Link href="/calculator">Start Calculating Taxes</Link>
-          </Button>
           <Button size="lg" variant="secondary">
             Explore Compliance Features
           </Button>
