@@ -23,6 +23,7 @@ import {
 const navLinks = [
   { href: '#features', label: 'Features' },
   { href: '#insights', label: 'Insights' },
+  { href: '/about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ];
 

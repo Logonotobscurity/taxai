@@ -16,7 +16,7 @@ export function Footer() {
             </Link>
           </div>
           <div className="pb-6">
-            <Link href="#" className="text-sm leading-6 text-muted-foreground hover:text-primary">
+            <Link href="/about" className="text-sm leading-6 text-muted-foreground hover:text-primary">
               About
             </Link>
           </div>
