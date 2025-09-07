@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import type { z } from 'zod';
 import { Card, CardContent } from '@/components/ui/card';
 import { Stepper } from '@/components/tax-calculator/stepper';
@@ -20,10 +21,22 @@ const steps = [
 ];
 
 export default function CalculatorPage() {
+  const searchParams = useSearchParams();
+  const initialIncome = searchParams.get('income');
+
   const [currentStep, setCurrentStep] = useState(0);
+  
   const [taxData, setTaxData] = useState<z.infer<typeof TaxFormSchema> | null>(
-    null
+    initialIncome ? { 
+        income: Number(initialIncome), 
+        taxYear: '2024',
+        calculationType: 'paye',
+        employmentType: 'employee',
+        deductions: {},
+        allowances: {}
+    } : null
   );
+
   const [results, setResults] = useState<CalculateTaxWithRulesOutput | null>(null);
   const [direction, setDirection] = useState(1); // 1 for next, -1 for back
 
