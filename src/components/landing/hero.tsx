@@ -17,7 +17,7 @@ export function HeroSection() {
           Your Partner in Growth
         </p>
         <h1 className="mt-4 text-[clamp(2.5rem,8vw,5rem)] font-bold font-headline leading-tight">
-          The generalist <span className="text-primary">tech solution</span> for ambitious companies.
+          Transform <span className="text-primary">Tax & Finance</span> Into Growth — Fast.
         </h1>
         <p className="mt-6 max-w-2xl text-md md:text-xl text-muted-foreground">
           We are a versatile team of problem solvers dedicated to helping you navigate the complexities of technology and achieve your business goals.
