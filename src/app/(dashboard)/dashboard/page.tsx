@@ -111,7 +111,7 @@ export default function Dashboard() {
               </Button>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={chartConfig} className="h-80 w-full">
+              <ChartContainer config={chartConfig} className="h-80 w-full min-h-[200px]">
                 <BarChart
                   data={chartData}
                   margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
