@@ -24,7 +24,9 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        {children}
+        <div className="relative flex min-h-dvh flex-col">
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>

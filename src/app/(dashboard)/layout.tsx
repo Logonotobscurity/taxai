@@ -9,6 +9,7 @@ import {
 import { Logo } from '@/components/icons';
 import { SidebarNav } from '@/components/sidebar-nav';
 import { Header } from '@/components/header';
+import Link from 'next/link';
 
 export default function DashboardLayout({
   children,
@@ -19,10 +20,10 @@ export default function DashboardLayout({
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader>
-          <div className="flex items-center gap-2 p-2">
+          <Link href="/" className="flex items-center gap-2 p-2">
             <Logo className="size-8 text-primary" />
             <span className="text-lg font-semibold text-primary">TaxAI</span>
-          </div>
+          </Link>
         </SidebarHeader>
         <SidebarContent className="p-2">
           <SidebarNav />
