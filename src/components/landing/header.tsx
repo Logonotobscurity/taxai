@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '../theme-toggle';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import {
@@ -84,7 +83,6 @@ export function Header() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle />
           <Button className="gradient-primary shadow" asChild>
             <Link href="/dashboard">Get Started</Link>
           </Button>
@@ -138,7 +136,6 @@ export function Header() {
                 </div>
                 <div className="p-4 border-t mt-auto">
                     <div className="flex items-center justify-between">
-                        <ThemeToggle />
                         <Button className="gradient-primary shadow w-full" asChild>
                             <Link href="/dashboard">Get Started</Link>
                         </Button>
