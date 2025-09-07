@@ -1,1 +1,6 @@
-// Flows will be imported for their side effects in this file.
+import { config } from 'dotenv';
+config();
+
+import '@/ai/flows/generate-personalized-tax-insights.ts';
+import '@/ai/flows/propose-tax-optimization-strategies.ts';
+import '@/ai/flows/calculate-tax-with-ai.ts';
