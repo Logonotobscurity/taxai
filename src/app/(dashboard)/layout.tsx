@@ -8,7 +8,6 @@ import {
   SidebarFooter,
   SidebarInset,
 } from '@/components/ui/sidebar';
-import { Logo } from '@/components/icons';
 import { SidebarNav } from '@/components/sidebar-nav';
 import { Header } from '@/components/header';
 import Link from 'next/link';
@@ -26,7 +25,6 @@ export default function DashboardLayout({
         <Sidebar>
           <SidebarHeader>
             <Link href="/" className="flex items-center gap-2 p-2">
-              <Logo className="size-8 text-primary" />
               <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
             </Link>
           </SidebarHeader>

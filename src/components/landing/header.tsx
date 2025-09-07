@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Logo } from '@/components/icons';
 import { ThemeToggle } from '../theme-toggle';
 
 export function Header() {
@@ -9,7 +8,6 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Logo className="size-8 text-primary" />
             <span className="font-headline text-lg font-semibold text-primary">TaxComply AI</span>
           </Link>
           <nav className="hidden md:flex md:gap-4">
