@@ -12,24 +12,24 @@ import {
 
 const insights = [
     {
-        title: "The Future of AI in Small Business",
-        description: "Exploring how even the smallest companies can leverage AI for significant growth.",
+        title: "FIRS Announces New Digital Filing Mandates for 2025",
+        description: "Understand the upcoming changes to digital tax submissions and how TaxComply AI ensures you remain compliant with the new FIRS portal requirements.",
         image: "https://picsum.photos/600/400",
-        tags: ["AI", "Business"],
+        tags: ["FIRS", "Compliance"],
         link: "#"
     },
     {
-        title: "Navigating the Cloud: AWS vs Google Cloud",
-        description: "A comprehensive comparison to help you choose the right cloud provider for your needs.",
+        title: "Unlocking a New Tax Incentive for Tech Startups",
+        description: "A deep dive into the latest government incentive designed to foster growth in the tech sector. Learn if your business qualifies and how to apply.",
         image: "https://picsum.photos/600/400",
-        tags: ["Cloud", "DevOps"],
+        tags: ["Incentives", "Startups"],
         link: "#"
     },
     {
-        title: "Data-Driven Decisions: A Practical Guide",
-        description: "Turn your data into actionable insights with these practical steps and tools.",
+        title: "Navigating Changes in Capital Gains Tax Regulations",
+        description: "Recent amendments to the Capital Gains Tax Act could impact your investment strategy. Here's what you need to know to stay ahead.",
         image: "https://picsum.photos/600/400",
-        tags: ["Data", "Analytics"],
+        tags: ["Tax Law", "Investment"],
         link: "#"
     }
 ]
@@ -39,15 +39,15 @@ export function FeaturedInsightsSection() {
     <section id="insights" className="py-16 md:py-24">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold">Featured Insights</h2>
+          <h2 className="text-2xl md:text-4xl font-bold">Latest Tax News & Insights</h2>
           <p className="mt-4 text-muted-foreground">
-            Stay ahead of the curve with our latest articles and analysis on technology and business.
+            Stay informed with the latest developments in Nigerian tax law and discover strategies to optimize your financial planning.
           </p>
         </div>
         <div className="mt-12 grid lg:grid-cols-3 gap-8">
             {insights.map(insight => (
                 <Card key={insight.title} className="overflow-hidden group">
-                    <Image src={insight.image} width={600} height={400} alt={insight.title} data-ai-hint="technology abstract" className="w-full h-48 object-cover"/>
+                    <Image src={insight.image} width={600} height={400} alt={insight.title} data-ai-hint="finance news" className="w-full h-48 object-cover"/>
                     <CardHeader>
                         <div className="flex gap-2 mb-2">
                             {insight.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
