@@ -11,6 +11,7 @@ import type {
 import type { TaxFormSchema } from '@/lib/schemas';
 import { FormulaEngine } from '@/services/formula-engine';
 import { TaxRulesEngine } from '@/services/tax-rules-engine';
+import { JudicialPrecedentSystem } from '@/services/judicial-precedent-system';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -70,4 +71,14 @@ export async function getTaxRulesAction(taxYear: string) {
     });
   });
   return rules;
+}
+
+export async function getPrecedentsForRuleAction(ruleName: string) {
+  const precedentSystem = new JudicialPrecedentSystem();
+  const precedents = precedentSystem.getPrecedentsForRule(ruleName);
+  // Convert dates to string to ensure they are serializable
+  return precedents.map((p) => ({
+    ...p,
+    decisionDate: p.decisionDate.toISOString(),
+  }));
 }
