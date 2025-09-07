@@ -1,21 +1,23 @@
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, Play, AlertCircle } from 'lucide-react';
 
 type FormulaEditorProps = {
+  formula: string;
+  setFormula: (formula: string) => void;
   onExecute: (formula: string) => void;
   loading: boolean;
 };
 
-export function FormulaEditor({ onExecute, loading }: FormulaEditorProps) {
-  const [formula, setFormula] = useState(
-    'CALCULATE_PAYE(income, { pension: pension_deduction, nhf: nhf_deduction })'
-  );
-
+export function FormulaEditor({
+  formula,
+  setFormula,
+  onExecute,
+  loading,
+}: FormulaEditorProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onExecute(formula);

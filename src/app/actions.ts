@@ -3,6 +3,7 @@
 import { calculateTaxWithAI } from '@/ai/flows/calculate-tax-with-ai';
 import { generatePersonalizedTaxInsights } from '@/ai/flows/generate-personalized-tax-insights';
 import { proposeTaxOptimizationStrategies } from '@/ai/flows/propose-tax-optimization-strategies';
+import { generateFormulaFromNL } from '@/ai/flows/generate-formula-from-nl';
 import type { z } from 'zod';
 import type {
   ProposeTaxOptimizationStrategiesInput,
@@ -81,4 +82,9 @@ export async function getPrecedentsForRuleAction(ruleName: string) {
     ...p,
     decisionDate: p.decisionDate.toISOString(),
   }));
+}
+
+export async function generateFormulaAction(naturalLanguage: string, context: Record<string, any>) {
+  const result = await generateFormulaFromNL({ naturalLanguage, context });
+  return result;
 }

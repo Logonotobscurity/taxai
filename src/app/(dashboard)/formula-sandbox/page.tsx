@@ -10,14 +10,18 @@ import {
 } from '@/components/ui/card';
 import { FormulaEditor } from '@/components/formula-editor/formula-editor';
 import { executeFormulaAction } from '@/app/actions';
+import { NlInput } from '@/components/formula-editor/nl-input';
 
 export default function FormulaSandboxPage() {
   const [result, setResult] = useState<string | number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [formula, setFormula] = useState(
+    'CALCULATE_PAYE(income, { pension: pension_deduction, nhf: nhf_deduction })'
+  );
 
-  const handleFormulaExecution = async (formula: string) => {
-    if (!formula) {
+  const handleFormulaExecution = async (execFormula: string) => {
+    if (!execFormula) {
       setResult(null);
       setError(null);
       return;
@@ -33,7 +37,7 @@ export default function FormulaSandboxPage() {
         nhf_deduction: 125000,
         pension_deduction: 400000,
       };
-      const res = await executeFormulaAction(formula, context);
+      const res = await executeFormulaAction(execFormula, context);
       setResult(res);
     } catch (err: any) {
       setError(err.message || 'An unknown error occurred.');
@@ -48,12 +52,18 @@ export default function FormulaSandboxPage() {
         <CardHeader>
           <CardTitle>Formula Sandbox</CardTitle>
           <CardDescription>
-            Test and run custom financial and tax calculations using our
-            Excel-like formula engine.
+            Test and run custom financial calculations. Describe what you want
+            to calculate in plain English, or write your own Excel-like formula.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <FormulaEditor onExecute={handleFormulaExecution} loading={loading} />
+        <CardContent className="space-y-4">
+          <NlInput onFormulaGenerated={setFormula} />
+          <FormulaEditor
+            formula={formula}
+            setFormula={setFormula}
+            onExecute={handleFormulaExecution}
+            loading={loading}
+          />
         </CardContent>
       </Card>
 
@@ -63,7 +73,7 @@ export default function FormulaSandboxPage() {
             <CardTitle>Result</CardTitle>
           </CardHeader>
           <CardContent>
-            {loading ? (
+            {loading && !error ? (
               <p>Calculating...</p>
             ) : error ? (
               <div className="text-red-500">{error}</div>
