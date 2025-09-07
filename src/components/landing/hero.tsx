@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[80vh] w-full items-center">
+    <section className="relative flex w-full items-center py-20 md:py-24">
       <div className="absolute inset-0 -z-10 h-full w-full">
         <div className="circuit-background"></div>
         <div className="absolute -top-24 left-1/2 -z-10 h-96 w-[150%] -translate-x-1/2 transform-gpu blur-3xl" aria-hidden="true">
