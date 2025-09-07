@@ -35,26 +35,6 @@ const CUSTOM_ACTIONS = [
     },
   },
   {
-    text: 'Proofread',
-    icon: CheckCheck,
-    action: 'Proofread',
-    colors: {
-      icon: 'text-green-600',
-      border: 'border-green-500',
-      bg: 'bg-green-100',
-    },
-  },
-  {
-    text: 'Condense',
-    icon: ArrowDownWideNarrow,
-    action: 'Condense',
-    colors: {
-      icon: 'text-purple-600',
-      border: 'border-purple-500',
-      bg: 'bg-purple-100',
-    },
-  },
-  {
     text: 'Get Tax Insight',
     icon: BrainCircuit,
     action: 'Insight',
@@ -111,7 +91,7 @@ export function ChatInterfaceSection() {
     setActiveAction(action);
 
     try {
-      if (file) {
+      if (file && action !== 'Insight') {
         // Handle file-based action
         const reader = new FileReader();
         reader.onload = async (e) => {
@@ -146,7 +126,7 @@ export function ChatInterfaceSection() {
             const response = await getPersonalizedInsightsAction({ financialData: value, financialNews: '' });
             setResult(response.insights);
         } else {
-            const response = await processTextAction({ text: value, action: effectiveAction });
+            const response = await processTextAction({ text: value, action: effectiveAction as 'Summarize' | 'Proofread' | 'Condense' });
             setResult(response.processedText);
         }
       }
@@ -177,7 +157,7 @@ export function ChatInterfaceSection() {
 
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center pt-0 pb-16 md:pb-24">
       <div className="w-full max-w-4xl p-4">
         <form
           className="relative rounded-lg border bg-background p-1 focus-within:ring-1 focus-within:ring-ring"
@@ -234,7 +214,7 @@ export function ChatInterfaceSection() {
                     action.colors.border,
                     action.colors.bg
                     )}
-                    onClick={() => handleCustomAction(action.action)}
+                    onClick={() => handleCustomAction(action.action as 'Summarize' | 'Insight')}
                 >
                     {loading && activeAction === action.action ? (
                         <Loader2 className={cn('size-4 animate-spin', action.colors.icon)} />
