@@ -24,7 +24,6 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { WelcomeModal } from '@/components/dashboard/welcome-modal';
 
 const chartData = [
   { month: 'January', tax: 186000, income: 800000 },
@@ -50,7 +49,6 @@ export default function Dashboard() {
   const formatCurrency = (value: number) => `₦${(value / 1000).toFixed(0)}k`;
   return (
     <>
-      <WelcomeModal />
       <div className="flex w-full flex-col">
         <main className="flex flex-1 flex-col gap-4 md:gap-8">
           <Card className="w-full bg-gradient-to-br from-secondary to-green-800 text-secondary-foreground shadow-lg transition-all hover:shadow-xl">

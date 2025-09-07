@@ -3,6 +3,7 @@ import { FeaturesSection } from '@/components/landing/features-section';
 import { CtaSection } from '@/components/landing/cta-section';
 import { Footer } from '@/components/landing/footer';
 import { Header } from '@/components/landing/header';
+import { WelcomeModal } from '@/components/landing/welcome-modal';
 
 export default function LandingPage() {
   return (
@@ -14,6 +15,7 @@ export default function LandingPage() {
         <CtaSection />
       </main>
       <Footer />
+      <WelcomeModal />
     </div>
   );
 }

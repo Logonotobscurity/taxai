@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -17,13 +17,33 @@ const ONBOARDING_KEY = 'taxai_onboarding_complete';
 export function WelcomeModal() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Check if the user has completed onboarding before
     const onboardingComplete = localStorage.getItem(ONBOARDING_KEY);
+
+    const handleScroll = () => {
+      // If the modal has been shown, or a timer is already set, do nothing.
+      if (localStorage.getItem(ONBOARDING_KEY) || timeoutRef.current) {
+        return;
+      }
+
+      // Set a timer to open the modal after 5 seconds
+      timeoutRef.current = setTimeout(() => {
+        setIsOpen(true);
+      }, 5000);
+    };
+
     if (!onboardingComplete) {
-      setIsOpen(true);
+      window.addEventListener('scroll', handleScroll, { once: true });
     }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   const handleStart = () => {
