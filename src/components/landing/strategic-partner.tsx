@@ -19,7 +19,7 @@ export function StrategicPartnerSection() {
       <div className="container grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-6">
           <h2 className="text-2xl md:text-4xl font-bold">
-            Your Strategic Tech Partner
+            Your Strategic Tax Compliance Partner
           </h2>
           <p className="text-muted-foreground md:text-lg">
             We believe in a three-step process to ensure your success:
