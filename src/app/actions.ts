@@ -10,6 +10,7 @@ import type {
 } from '@/ai/flows/propose-tax-optimization-strategies';
 import type { TaxFormSchema } from '@/lib/schemas';
 import { FormulaEngine } from '@/services/formula-engine';
+import { TaxRulesEngine } from '@/services/tax-rules-engine';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -51,4 +52,22 @@ export async function executeFormulaAction(
   const formulaEngine = new FormulaEngine();
   const result = formulaEngine.evaluate(formula, context);
   return result;
+}
+
+export async function getTaxRulesAction(taxYear: string) {
+  const rulesEngine = new TaxRulesEngine();
+  await rulesEngine.loadRules(taxYear);
+  const rules: any[] = [];
+  rulesEngine.rules.forEach((rule, key) => {
+    // Convert dates to string to ensure they are serializable
+    rules.push({
+      id: key,
+      ...rule,
+      effectiveDate: rule.effectiveDate.toISOString(),
+      expirationDate: rule.expirationDate
+        ? rule.expirationDate.toISOString()
+        : null,
+    });
+  });
+  return rules;
 }

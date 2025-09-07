@@ -10,6 +10,7 @@ import {
   Bot,
   Settings,
   FunctionSquare,
+  Landmark,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -31,6 +32,11 @@ const navItems: NavItem[] = [
   { href: '/reports', label: 'Reports', icon: BarChart2 },
   { href: '/ai-advisor', label: 'AI Advisor', icon: Bot },
   { href: '/formula-sandbox', label: 'Formula Sandbox', icon: FunctionSquare },
+  {
+    href: '/tax-constitution',
+    label: 'Tax Constitution',
+    icon: Landmark,
+  },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
