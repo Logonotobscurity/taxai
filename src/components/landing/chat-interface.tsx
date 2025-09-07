@@ -100,7 +100,7 @@ export function ChatInterfaceSection() {
   }, [value]);
 
   const handleCustomAction = async (
-    action: 'Summarize' | 'Proofread' | 'Condense' | 'Insight'
+    action: 'Summarize' | 'Proofread' | 'Condense' | 'Insight' | 'Send'
   ) => {
     if (!value && !file) return;
 
@@ -115,17 +115,23 @@ export function ChatInterfaceSection() {
         const reader = new FileReader();
         reader.onload = async (e) => {
           const documentDataUri = e.target?.result as string;
-          const response = await analyzeDocumentAction({ documentDataUri, query: value || `Please ${action} this document.` });
+          const query = value || (action !== 'Send' ? `Please ${action} this document.` : 'Analyze this document.');
+          const response = await analyzeDocumentAction({ documentDataUri, query });
           setResult(response.analysis);
         };
         reader.readAsDataURL(file);
       } else {
         // Handle text-based action
-        if (action === 'Insight') {
+        let effectiveAction = action;
+        if (action === 'Send') {
+            effectiveAction = 'Insight';
+        }
+        
+        if (effectiveAction === 'Insight') {
             const response = await getPersonalizedInsightsAction({ financialData: value, financialNews: '' });
             setResult(response.insights);
         } else {
-            const response = await processTextAction({ text: value, action });
+            const response = await processTextAction({ text: value, action: effectiveAction });
             setResult(response.processedText);
         }
       }
@@ -162,10 +168,7 @@ export function ChatInterfaceSection() {
           className="relative rounded-lg border bg-background p-1 focus-within:ring-1 focus-within:ring-ring"
           onSubmit={(e) => {
             e.preventDefault();
-            // Default submit could trigger the first custom action or a generic chat response
-            if (CUSTOM_ACTIONS.length > 0) {
-              handleCustomAction(CUSTOM_ACTIONS[0].action);
-            }
+            handleCustomAction('Send');
           }}
         >
           <ChatInput
