@@ -16,6 +16,10 @@ import {
   processText,
   type ProcessTextInput,
 } from '@/ai/flows/process-text-flow';
+import {
+  analyzeDocument,
+  type AnalyzeDocumentInput,
+} from '@/ai/flows/analyze-document-flow';
 
 export async function calculateTaxAction(
   data: z.infer<typeof TaxFormSchema>
@@ -98,4 +102,9 @@ export async function generateFormulaAction(
 export async function processTextAction(data: ProcessTextInput) {
   const result = await processText(data);
   return result;
+}
+
+export async function analyzeDocumentAction(data: AnalyzeDocumentInput) {
+    const result = await analyzeDocument(data);
+    return result;
 }
